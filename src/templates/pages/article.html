@@ -1,0 +1,161 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/audio-player/css/audioplayer.css" />
+<!-- Article HTML Starts Here -->
+<div class="article-page">
+    <div class="container-fluid article-wrap">
+        <div class="row row-15">
+            <div class="col-12">
+                <div class="article-head">
+                    <h2>{{ article.title | safe }}</h2>
+                    <div class="action-wrap">
+                        <p><img src="/images/calendar-icon.svg" class="img-fluid" alt="Icon">
+                            <span id="demo">{{ article.publishDate | date }}</span>
+                            <!-- 22.08.2019 -->
+                        </p>
+
+                        <div class="button-wrap">
+                            <!-- <a href="#" class="button primary-button">share <img src="images/share-icon.svg" class="img-fluid" alt="icon" ></a> -->
+                            <a href="#" class="mdc-button mdc-button--raised"> <span class="mdc-button__ripple"></span>
+                                share <img src="/images/share-icon.svg" class="img-fluid" alt="icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-12">
+                <div class="article-block">
+
+                    <div class="video-wrapper" style="position: relative;
+                    width: 100%;
+                    padding-top: 56.25%;
+                    background: url({{ article.articleImage.path | image }});
+                    overflow: hidden;
+                    background-size: cover;
+                    background-position: center;">
+                        <!-- <img src="{{ article.articleImage.path | image }}"  class="img-responsive"> -->
+                        <!-- <iframe src="https://www.youtube.com/embed/OVKAOwzAwHI?controls=0" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe> -->
+                    </div>
+                    <div style="clear: both;"></div>
+                    {% if article.audioLink.s3Key %}
+                    <div class="audio-wrap">
+                        <div class="audio_player">
+                            <ul class="playlist">
+                                <li><a href="/audio/audio.mp3">Listen to this article</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                        <p style=" margin: 0;">Listen to this article</p>
+                        <audio controls>
+                          <source src="{{ article.audioLink.s3Key | asset }}" type="{{ article.audioLink.mimeType }}">
+                        Your browser does not support the audio element.
+                        </audio>
+                         </div>
+                        <!-- <a href="audio/audio.mp3" class="download-audio" download="audio/audio.mp3"><img src="images/download-cloud.svg" class="img-fluid" alt="Download"></a> -->
+                        <a href="{{ article.audioLink.s3Key | asset }}" class="download-audio"><img src="/images/download-cloud.svg"
+                                                                                       class="img-fluid" alt="Download"></a>
+                    </div>
+                     {% endif %}
+
+             <p style="font-size: 14px; line-height: 23px; letter-spacing: 0px; color: #bbbbbb;">      {{ article.articleContent | safe }} </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid related-wrap">
+        <div class="row row-9">
+
+            <div class="col-12">
+                <h5>related</h5>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-12 mob-card latest-guides-card-column">
+                <div class="content-card article-card latest-guides-card" style="    min-height: 300px;">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100 h-190px" alt="" style="object-fit: cover;">
+                        </div>
+                        <div class="content-wrap content-wrap190 ">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                        d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                        transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-12 mob-card latest-guides-card-column">
+                <div class="content-card article-card latest-guides-card" style="    min-height: 300px;" >
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100 h-190px" alt="" style="object-fit: cover;">
+                        </div>
+                        <div class="content-wrap content-wrap190 ">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                        d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                        transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-12 mob-card latest-guides-card-column">
+                <div class="content-card article-card latest-guides-card" style="    min-height: 300px;">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100 h-190px" alt="" style="object-fit: cover;">
+                        </div>
+                        <div class="content-wrap content-wrap190 ">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                        d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                        transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Article HTML Ends Here -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="/audio-player/js/audioplayer.js"></script>
+<script>
+            $(function() {
+                $('audio').audioPlayer();
+            });
+        </script>
+{% endblock %}

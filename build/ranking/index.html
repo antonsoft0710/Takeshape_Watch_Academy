@@ -1,0 +1,787 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Watch Academy</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/material-components-web.min.css">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+
+  <!-- jQuery -->
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/material-components-web.min.js"></script>
+
+</head>
+
+<body class="dark-theme">
+
+<div class="wrapper">
+
+  <!-- Header HTML Starts Here -->
+
+<header>
+  <div class="content">
+    <div class="logo-wrap">
+      <a href="/">
+        <img src="/images/logo.svg" class="img-fluid logo-lg" alt="Watch Academy"/>
+        <img src="/images/logo-icon.svg" class="img-fluid logo-sm" alt="Watch Academy"/>
+      </a>
+    </div>
+    <div class="search-wrap">
+      <!-- Form Starts Here -->
+      <form>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18.414" height="18.414" viewBox="0 0 18.414 18.414">
+          <g id="Group_2" data-name="Group 2" transform="translate(-452 -22)">
+            <path id="Path" d="M0,0,5.588,5.588" transform="translate(463.412 33.412)"
+            stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+            <circle id="Oval" cx="6" cy="6" r="6" transform="translate(453 23)" stroke-linecap="square"
+            stroke-miterlimit="10" stroke-width="2"/>
+          </g>
+        </svg>
+        <input type="text" class="form-control" placeholder="Search Academy">
+      </form>
+      <!-- Form Ends Here -->
+    </div>
+    <div class="menu-wrap">
+
+      <div class="theme-change">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.962 19.963" class="theme-icon show-dt">
+          <g transform="translate(-0.038)">
+            <g transform="translate(-1395 -22)">
+              <g id="Navigation" transform="translate(-240)">
+                <g id="Dark-Mode" transform="translate(1636 23)">
+                  <path id="Path" d="M18,9.79A9,9,0,1,1,8.21,0,7,7,0,0,0,18,9.79Z" fill="none"
+                  stroke="#ffea00" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" fill-rule="evenodd"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" class="theme-icon show-lt">
+          <g transform="translate(-52162.5 -712.5)">
+            <g id="Navigation" transform="translate(-9000)">
+              <g id="Light-Mode" transform="translate(61200 750)">
+                <circle id="Oval" cx="187.5" cy="187.5" r="187.5" stroke-width="75"
+                transform="translate(225 225)" stroke="#ffea00" stroke-linecap="round"
+                stroke-linejoin="round" fill="none"/>
+                <line id="Path" y2="75" stroke-width="75" transform="translate(412.5)" stroke="#ffea00"
+                stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <line id="Path-2" data-name="Path" y2="75" transform="translate(412.5 750)" fill="none"
+                stroke="#ffea00" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="75"/>
+                <line id="Path-3" data-name="Path" x2="53.25" y2="53.25"
+                transform="translate(120.75 120.75)" fill="none" stroke="#ffea00"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="75"/>
+                <line id="Path-4" data-name="Path" x2="53.25" y2="53.25" transform="translate(651 651)"
+                fill="none" stroke="#ffea00" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="75"/>
+                <line id="Path-5" data-name="Path" x2="75" transform="translate(0 412.5)" fill="none"
+                stroke="#ffea00" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="75"/>
+                <line id="Path-6" data-name="Path" x2="75" transform="translate(750 412.5)" fill="none"
+                stroke="#ffea00" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="75"/>
+                <line id="Path-7" data-name="Path" y1="53.25" x2="53.25"
+                transform="translate(120.75 651)" fill="none" stroke="#ffea00"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="75"/>
+                <line id="Path-8" data-name="Path" y1="53.25" x2="53.25"
+                transform="translate(651 120.75)" fill="none" stroke="#ffea00"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="75"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="menu-row">
+        <div id="nav_list" class="menu-mobile-icon">
+          <div id="toggle-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="main-navigation">
+          <nav id="nav" class="nav">
+            <ul class="main-menu-list">
+              <li><a href="/allcategories">
+                Categories
+                <svg xmlns="http://www.w3.org/2000/svg" class="down-icon" viewBox="0 0 8 5">
+                  <path id="down-arrow"
+                  d="M3.689,4.867.129,1.2a.462.462,0,0,1,0-.64L.544.133a.431.431,0,0,1,.621,0L4,3.038,6.835.132a.431.431,0,0,1,.621,0L7.871.56a.462.462,0,0,1,0,.64L4.311,4.867A.431.431,0,0,1,3.689,4.867Z"/>
+                </svg>
+              </a>
+              <ul>
+                
+
+                
+                <li><a href="\category\watch-bands">Watch Bands</a></li> 
+                
+                
+
+                
+                <li><a href="\category\watch-styles">Watch Styles</a></li> 
+                
+                
+
+                
+                <li><a href="\category\watch-features">Watch Features</a></li> 
+                
+                
+
+                
+                <li><a href="\category\watches">Watches</a></li> 
+                
+                
+
+                
+                
+              </ul>
+            </li>
+
+            <li><a href="/glossary">Glossary</a></li>
+            <li class="theme-button">
+              <a class="theme-change">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.962 19.963"
+                class="theme-icon show-dt suppress-animation">
+                <g transform="translate(-0.038)">
+                  <g transform="translate(-1395 -22)">
+                    <g id="Navigation" transform="translate(-240)">
+                      <g id="Dark-Mode" transform="translate(1636 23)">
+                        <path id="Path" d="M18,9.79A9,9,0,1,1,8.21,0,7,7,0,0,0,18,9.79Z"
+                        fill="none" stroke="#ffea00" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2"
+                        fill-rule="evenodd"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900"
+              class="theme-icon show-lt">
+              <g transform="translate(-52162.5 -712.5)">
+                <g id="Navigation" transform="translate(-9000)">
+                  <g id="Light-Mode" transform="translate(61200 750)">
+                    <circle id="Oval" cx="187.5" cy="187.5" r="187.5" stroke-width="75"
+                    transform="translate(225 225)" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <line id="Path" y2="75" stroke-width="75"
+                    transform="translate(412.5)" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <line id="Path-2" data-name="Path" y2="75"
+                    transform="translate(412.5 750)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                    <line id="Path-3" data-name="Path" x2="53.25" y2="53.25"
+                    transform="translate(120.75 120.75)" fill="none"
+                    stroke="#eea500" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="75"/>
+                    <line id="Path-4" data-name="Path" x2="53.25" y2="53.25"
+                    transform="translate(651 651)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                    <line id="Path-5" data-name="Path" x2="75"
+                    transform="translate(0 412.5)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                    <line id="Path-6" data-name="Path" x2="75"
+                    transform="translate(750 412.5)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                    <line id="Path-7" data-name="Path" y1="53.25" x2="53.25"
+                    transform="translate(120.75 651)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                    <line id="Path-8" data-name="Path" y1="53.25" x2="53.25"
+                    transform="translate(651 120.75)" fill="none" stroke="#eea500"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="75"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Header HTML Ends Here -->
+
+  
+<style type="text/css">
+	body {
+		font-weight: normal;
+		font-family: Helvetica Neue, "Arial", sans-serif !important;
+		color: #000;
+		line-height: 1.3;
+		padding: 0;
+		margin: 0;
+	}
+</style>
+<div class="rankingTopBrands">
+	<div class="custom_container">
+		<ul>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/758315ac-3e7f-4eac-8861-328627fa21eb/rolex.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Rolex</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">2</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/a4bd3765-4510-496a-8384-0a6930393f2f/tissot-prc-200.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Tissot</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">2</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/9884352f-78ac-4327-9275-14fac553fc83/bell-ross-br.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Bell & Ross</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">1</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/6df96b39-633b-49fc-af0e-6e9b4724fe61/seiko-watch.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Seiko</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">1</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/a4bd3765-4510-496a-8384-0a6930393f2f/tissot-prc-200.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Test</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+							c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+							C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+						</svg>
+						<span style="color: #b52b2b;">2</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/3520c3f9-90a9-47a2-a7f0-180dac3edffa/rado.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Rado</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">2</span>
+						
+					</div>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/9884352f-78ac-4327-9275-14fac553fc83/bell-ross-br.jpg?auto=compress%2Cformat" alt="">					
+					<div>
+						<h5>Davi</h5>
+
+						
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+							c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+							C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+						</svg>
+						<span style="color: #b52b2b;">45</span>
+						
+					</div>
+				</a>
+			</li>
+						
+		</ul>
+	</div>
+</div>
+<div class="custom_container">
+	<div class="ranking_wrapper">
+		<div class="rankingLeft">
+			<div class="promoBanner">
+				Promo Banner
+			</div>
+			<div class="rankingTable">
+				<div class="rankingSearchWrap">
+					<div class="rankingSearch">
+						<svg x="0px" y="0px"
+						width="22px" height="22px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">
+						<path fill="#FFFFFF" d="M21.707,20.293l-4.159-4.159c1.392-1.704,2.23-3.878,2.23-6.245C19.778,4.436,15.342,0,9.889,0
+						C4.436,0,0,4.436,0,9.889c0,5.452,4.436,9.889,9.889,9.889c2.367,0,4.54-0.838,6.245-2.23l4.159,4.159
+						C20.488,21.903,20.744,22,21,22s0.512-0.098,0.707-0.293C22.098,21.317,22.098,20.684,21.707,20.293z M2,9.889
+						C2,5.539,5.539,2,9.889,2c4.35,0,7.889,3.539,7.889,7.889c0,2.166-0.878,4.13-2.297,5.557c-0.006,0.006-0.015,0.008-0.021,0.014
+						c-0.006,0.006-0.008,0.015-0.014,0.021c-1.427,1.418-3.391,2.296-5.557,2.296C5.539,17.778,2,14.239,2,9.889z"/>
+					</svg>
+					<input type="search" class="form-control" placeholder="Search">
+				</div>
+				<a href="#." class="addBrandBtn">
+					<svg x="0px" y="0px" width="18px" height="18px" viewBox="0 0 18 18" enable-background="new 0 0 18 18" xml:space="preserve">
+						<g>
+							<path fill="#9798A7" d="M9,0.25C4.175,0.25,0.25,4.175,0.25,9c0,4.825,3.925,8.75,8.75,8.75c4.825,0,8.75-3.925,8.75-8.75
+							C17.75,4.175,13.825,0.25,9,0.25z M9,16.25c-3.998,0-7.25-3.252-7.25-7.25c0-3.998,3.252-7.25,7.25-7.25
+							c3.998,0,7.25,3.252,7.25,7.25C16.25,12.998,12.998,16.25,9,16.25z"/>
+							<path fill="#9798A7" d="M12.2,8.25H9.75V5.8c0-0.414-0.336-0.75-0.75-0.75S8.25,5.386,8.25,5.8v2.45H5.8
+							C5.386,8.25,5.05,8.586,5.05,9S5.386,9.75,5.8,9.75h2.45v2.45c0,0.414,0.336,0.75,0.75,0.75s0.75-0.336,0.75-0.75V9.75h2.45
+							c0.414,0,0.75-0.336,0.75-0.75S12.614,8.25,12.2,8.25z"/>
+						</g>
+					</svg>
+					<span style="color: #9798A7;">Add Brand</span>
+				</a>
+				<div class="clear"></div>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="text-align: center;">Rank</th>
+						<th>Brand</th>
+						<th>Rank Change (Week)</th>
+						<th>Averrage Price</th>
+					</tr>
+				</thead>
+				<tbody>
+								
+					<tr>
+						<td style="text-align: center;">1</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/758315ac-3e7f-4eac-8861-328627fa21eb/rolex.jpg?auto=compress%2Cformat" alt="">
+								<span>Rolex </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">2</span>
+							
+						</td>
+						<td>$99999</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">2</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/a4bd3765-4510-496a-8384-0a6930393f2f/tissot-prc-200.jpg?auto=compress%2Cformat" alt="">
+								<span>Tissot </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">2</span>
+							
+						</td>
+						<td>$400</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">2</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/9884352f-78ac-4327-9275-14fac553fc83/bell-ross-br.jpg?auto=compress%2Cformat" alt="">
+								<span>Bell & Ross </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">1</span>
+							
+						</td>
+						<td>$500</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">2</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/6df96b39-633b-49fc-af0e-6e9b4724fe61/seiko-watch.jpg?auto=compress%2Cformat" alt="">
+								<span>Seiko </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">1</span>
+							
+						</td>
+						<td>$500</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">2</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/a4bd3765-4510-496a-8384-0a6930393f2f/tissot-prc-200.jpg?auto=compress%2Cformat" alt="">
+								<span>Test </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+								c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+								C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+							</svg>
+							<span style="color: #b52b2b;">2</span>
+							
+						</td>
+						<td>$400</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">3</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/3520c3f9-90a9-47a2-a7f0-180dac3edffa/rado.jpg?auto=compress%2Cformat" alt="">
+								<span>Rado </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">2</span>
+							
+						</td>
+						<td>$600</td>
+					</tr>
+								
+					<tr>
+						<td style="text-align: center;">50</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/9884352f-78ac-4327-9275-14fac553fc83/bell-ross-br.jpg?auto=compress%2Cformat" alt="">
+								<span>Davi </span>
+							</div>
+						</td>
+						<td>
+							
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+								c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+								C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+							</svg>
+							<span style="color: #b52b2b;">45</span>
+							
+						</td>
+						<td>$1000</td>
+					</tr>
+										
+				</tbody>
+			</table>
+			<ul class="rankingPaginations">
+				<li class="prev">
+					<a href="#.">
+						<svg width="6" height="9" viewBox="0 0 6 9">
+							<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M5.5 9L1 4.5 5.5 0"/>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a class="active" href="#.">
+						1
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						2
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						3
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						4
+					</a>
+				</li>
+				<li  class="next">
+					<a href="#.">
+						<svg width="6" height="9" viewBox="0 0 6 9">
+							<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M.5 9L5 4.5.5 0"/>
+						</svg>
+					</a>
+				</li>
+				<li  class="viewAll">
+					<a href="#.">
+						View All
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="rankingRight">
+		<div class="ranking_wrapper">
+			<div class="sideBlogPostsWrap">
+				<h4 class="rankingSideTitle">LATEST BOG POSTS <small style="float: right;"><a href="/allarticle"><img src="/images/round-arrow.svg" alt=""></a></small></h4>
+				<ul class="sideBlogPosts">
+					
+					<li>
+						<a href="\article\test-4\">
+							<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/7664405f-bb68-4cb4-996a-fcd06be347da/category-08.jpg?auto=compress%2Cformat" alt="">
+
+							<div class="sideBlogTxt">
+								<h5>Test-4</h5>
+								<p>Test-4</p>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a href="\article\test-3\">
+							<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/78450e2c-a78e-4449-ac83-14ab5190bbcf/category-10.jpg?auto=compress%2Cformat" alt="">
+
+							<div class="sideBlogTxt">
+								<h5>Test-3</h5>
+								<p>Test-3</p>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a href="\article\test-2\">
+							<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/d5ab09e2-4c60-4b42-bf7c-3d6f15b482b0/category-04.jpg?auto=compress%2Cformat" alt="">
+
+							<div class="sideBlogTxt">
+								<h5>Test-2</h5>
+								<p>Test-2</p>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a href="\article\test-1\">
+							<img src="https://images.takeshape.io/6731f3b7-5942-4304-a9ce-6d1ec69c3883/dev/4fb5b985-265b-47ff-9955-0799855794f6/category-12.jpg?auto=compress%2Cformat" alt="">
+
+							<div class="sideBlogTxt">
+								<h5>Test-1</h5>
+								<p>Test-1</p>
+							</div>
+						</a>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="sideInstaPostsWrap">
+				<h4 class="rankingSideTitle">INSTAGRAM FEED <small style="float: right;"><a href="#"><img src="/images/round-arrow.svg" alt=""></a></small></h4>
+				<ul class="sideInstaPostsli">
+					<li>
+						<img src="/images/category-04.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-05.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-06.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-07.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-08.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-09.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-10.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-11.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-12.jpg" alt="">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+
+
+  <footer>
+    <div class="container">
+        <div class="row justify-content-xl-start justify-content-lg-start justify-content-md-center justify-content-sm-center">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 logo-col">
+                <a href="/">
+                <img src="/images/logo.svg" class="img-fluid logo" alt="image"/>
+ </a>
+                <p class="copy-right d-none d-xl-block d-lg-block">All Rights Reserved 2019</p>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-12">
+                <h4>Content</h4>
+                <ul class="footer-list">
+                    <li><a href="/allcategories">Categories</a></li>
+                    <li><a href="#">Playlist</a></li>
+                    <li><a href="/glossary">Glossary</a></li>
+                    <li><a href="/allarticle">Article</a></li>
+                    <li><a href="#">Quizzes</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-12">
+                <h4>Submisions</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Content Request</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12">
+                <h4>Ecosystem</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Content Request</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-12">
+                <p class="copy-right d-xl-none d-lg-none">All Rights Reserved 2019</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+
+  <!-- Back to Top -->
+  <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+
+</div>
+
+<script src="/javascripts/main.js"></script>
+ 
+<script src="/javascripts/custom.js"></script>
+
+
+
+</body>
+</html>

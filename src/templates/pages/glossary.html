@@ -1,0 +1,112 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+@register.tag(name='set')
+<!-- Glossary HTML Starts Here -->
+<div class="glossary_wrap">
+	<div class="glossary_container">
+		<h3 class="glossary_title" style="margin-top:70px"><b>Glossary</b></h3>
+		<div class="glossary_inner">
+			<ul>
+				{% set lastCharacter = '' %}
+				{% set isFirstBlock = true %}
+				{% for glossary in glossaryList.items %}
+				{% set currentCharacter = glossary.termTitle[0] %}
+				<li>
+					{% if currentCharacter in "0,1,2,3,4,5,6,7,8,9" %}
+					{% set currentCharacter = '0-9' %}
+					{% endif %}
+					<div class="thumbWrap" id="{{ currentCharacter }}">
+						{% if lastCharacter != currentCharacter %}
+						{% set lastCharacter = currentCharacter %}
+
+						{% if currentCharacter == '0-9' %}
+						<div class="thumb">#</div>
+						{% else %}						
+						<div class="thumb">{{ currentCharacter }}</div>
+						{% endif %}
+
+						<div class="thumbSeperator">
+							{% if isFirstBlock!=true %}
+							<!-- <p><a href="#" style="font-size: 11px">[Back to the Top]</a></p> -->
+							{% endif %}
+							{% set isFirstBlock = false %}
+						</div>
+						{% endif %}
+					</div>
+					<div class="txt">
+						<h4>{{ glossary.termTitle }}</h4>
+						<p>{{ glossary.termDefinition }}</p>
+					</div>
+				</li>
+				{% endfor %}	
+				<!-- <li>
+					<div class="thumbWrap">
+						<div class="thumbSeperator" style="background: transparent;">
+							<p><a href="#" style="font-size: 11px">[Back to the Top]</a></p>
+						</div>
+					</div>	
+				</li> -->
+
+
+			</ul>
+			<ol>
+				<li class="quick-link" data-value="0-9"><a href="#0-9">#</a></li> 
+				<li class="quick-link" data-value="A"><a href="#A">A</a></li> 
+				<li class="quick-link" data-value="B"><a href="#B">B</a></li> 
+				<li class="quick-link" data-value="C"><a href="#C">C</a></li> 
+				<li class="quick-link" data-value="D"><a href="#D">D</a></li> 
+				<li class="quick-link" data-value="E"><a href="#E">E</a></li> 
+				<li class="quick-link" data-value="F"><a href="#F">F</a></li> 
+				<li class="quick-link" data-value="G"><a href="#G">G</a></li> 
+				<li class="quick-link" data-value="H"><a href="#H">H</a></li> 
+				<li class="quick-link" data-value="I"><a href="#I">I</a></li> 
+				<li class="quick-link" data-value="J"><a href="#J">J</a></li> 
+				<li class="quick-link" data-value="K"><a href="#K">K</a></li> 
+				<li class="quick-link" data-value="L"><a href="#L">L</a></li> 
+				<li class="quick-link" data-value="M"><a href="#M">M</a></li> 
+				<li class="quick-link" data-value="N"><a href="#N">N</a></li> 
+				<li class="quick-link" data-value="O"><a href="#O">O</a></li> 
+				<li class="quick-link" data-value="P"><a href="#P">P</a></li> 
+				<li class="quick-link" data-value="Q"><a href="#Q">Q</a></li> 
+				<li class="quick-link" data-value="R"><a href="#R">R</a></li> 
+				<li class="quick-link" data-value="S"><a href="#S">S</a></li> 
+				<li class="quick-link" data-value="T"><a href="#T">T</a></li> 
+				<li class="quick-link" data-value="U"><a href="#U">U</a></li> 
+				<li class="quick-link" data-value="V"><a href="#V">V</a></li> 
+				<li class="quick-link" data-value="W"><a href="#W">W</a></li> 
+				<li class="quick-link" data-value="X"><a href="#X">X</a></li> 
+				<li class="quick-link" data-value="Y"><a href="#Y">Y</a></li> 
+				<li class="quick-link" data-value="Z"><a href="#Z">Z</a></li> 
+			</ol>
+		</div>
+	</div>
+</div>
+
+<!-- Glossary HTML Ends Here -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<!-- <script src="/javascripts/jquery.mobile-1.4.5.min.js"></script> -->
+
+<script>
+	$(document).ready(function(){
+		$('html').css('scroll-behavior', 'smooth');
+		$('.wrapper').css('overflow', 'initial');
+		$('.quick-link').each(function(){
+			if($('#'+$(this).data('value')).length == 0)
+			{
+				$(this).addClass('disabled');
+				if($(this).data('value') == '0-9')
+					$(this).html('#');
+				else
+					$(this).html($(this).data('value'));
+			}
+		})
+	});
+
+</script>
+
+{% endblock %}

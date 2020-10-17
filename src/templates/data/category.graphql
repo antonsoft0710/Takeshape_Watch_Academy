@@ -1,0 +1,49 @@
+{
+  getArticleCategoryList{
+    total
+    items {
+      _id
+     categoryTitle
+      _createdAt
+      definition
+       icon {
+      _id
+      caption
+      credit
+      description
+      filename
+      mimeType
+      path
+      sourceUrl
+      title
+      uploadStatus
+      }
+    articleSet{
+      total
+      items{
+        title
+         articleImage {
+      _id
+      caption
+      credit
+      description
+      filename
+      mimeType
+      path
+      sourceUrl
+      title
+      uploadStatus
+    }
+        excerpt
+        articleContent
+        
+      }
+    }
+    }
+    
+  
+  }
+  
+}
+
+

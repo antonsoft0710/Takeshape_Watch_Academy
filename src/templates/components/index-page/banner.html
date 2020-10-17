@@ -1,0 +1,32 @@
+<!-- Banner HTML Starts Here -->
+<section class="banner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <div class="text-wrap">
+                        <h4 class="d-none d-xl-block d-lg-block d-md-block">{{ page.homeBanner.bannerQuote }}</h4>
+                        <h4 class="d-block d-xl-none d-lg-none d-md-none">{{ page.homeBanner.bannerQuoteMobile }}</h4>
+                        <h1>{{ page.homeBanner.bannerTitle }}</h1>
+                        <p>{{ page.homeBanner.bannerContent }}</p>
+                        <a href="{{ page.homeBanner.bannerButtonLink }}" class="button primary-button">{{ page.homeBanner.bannerButtonText }}</a>
+                        <div class="button-wrap">
+                            {% for feature in page.homeBanner.repeater %}
+                                <div class="box">
+                                <a href="#">
+                                    <i class="{{ feature.featureIcon }}"></i>
+                                    <span>{{ feature.featureHead }}</span>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="img-wrap">
+                        <img src="/images/watch-png-hd-.png" class="img-fluid" alt="Watch" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner HTML Ends Here -->

@@ -1,0 +1,21 @@
+ {% if category.articleSet.items.length %}
+ {% for article in category.articleSet.items %}
+                    
+            <!-- Cateogory Post HTML Starts Here -->
+            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="post-wrap">
+                    <a href="{{ article | route('articles')}}" class="post-link">
+                        <div class="image-wrap background-image" style="background-image: url({{ article.articleImage.path | image }});">
+                            <!-- <img src="{{ article.articleImage.path | image }}" style="width: 300px; height: 170px"> -->
+                        </div>
+                        <div class="content-area">
+                            <h3>{{ article.title | safe}}</h3>
+                            <p>{{ article.excerpt | safe}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="alert alert-warning">{{ category.categoryTitle | safe}} has no article</div>
+            {% endif %}

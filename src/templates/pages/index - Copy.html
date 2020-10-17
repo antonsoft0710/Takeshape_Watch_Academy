@@ -1,0 +1,544 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+
+<!-- Banner HTML Starts Here -->
+<section class="banner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <div class="text-wrap">
+                        <h4 class="d-none d-xl-block d-lg-block d-md-block">{{ page.introQuote  | safe }}</h4>
+                        <h4 class="d-block d-xl-none d-lg-none d-md-none">AT THE TIP OF YOUR FINGERS</h4>
+                        <h1>{{ page.bannerHeading | safe }}</h1>
+                        <p>{{ page.bannerDescription | safe }}</p>
+                        <a href="#" class="mdc-button mdc-button--raised"> <span class="mdc-button__ripple"></span>
+                            {{ page.bannerButtonText | safe }}</a>
+
+                        <div class="button-wrap">
+                            {% for category in page.bannerCategories %}
+                            <div class="box">
+                                    {% if category.relationship._id=="b017bdd2-feec-49cc-9c4b-bfc195e2127a" %}
+                                <a href="/category/watches">
+                                    <i class="icon-watches"></i>
+                                    <span>{{ category.relationship.ArticleCategory_categoryTitle | safe}}</span>
+                                </a>
+                                     {% endif %}
+                                      {% if category.relationship._id=="7d4f80de-4d0b-4d0a-aa63-ff41a9415f5e" %}
+                                <a href="/category/Watch-Features/">
+                                    <i class="icon-watch-features"></i>
+                                    <span>{{ category.relationship.ArticleCategory_categoryTitle | safe}}</span>
+                                </a>
+                                     {% endif %}
+                                      {% if category.relationship._id=="5b4b8bd7-cd0a-4097-b4d9-a85ea7fef96e" %}
+                                <a href="/category/Watch-Styles/">
+                                     <i class="icon-watch-styles"></i>
+                                    <span>{{ category.relationship.ArticleCategory_categoryTitle | safe}}</span>
+                                </a>
+                                     {% endif %}
+                                     {% if category.relationship._id=="1d21019d-ec2b-4c4f-8096-e62cb0e8b0e0" %}
+                                <a href="/category/Watch-Bands">
+                                     <i class="icon-watch-brands"></i>
+                                    <span>{{ category.relationship.ArticleCategory_categoryTitle | safe}}</span>
+                                </a>
+                                     {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="img-wrap">
+                        <img src="/images/watch-png-hd-.png" class="img-fluid" alt="Watch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Banner HTML Ends Here -->
+
+<!-- LATEST Guides HTML Starts Here -->
+<section class="latest-gaides">
+    <div class="container-fluid">
+        <div class="row row-9">
+            <div class="col-xl-6 col-lg-12">
+                <h4>LATEST Guides</h4>
+            </div>
+            <div class="col-xl-6 d-none d-xl-block">
+                <a href="/article/" class="button blank-button">
+                    VIEW ALL ARTICLES
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="content-card latest-guides-card">
+                    <a href="/article/">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="content-card latest-guides-card">
+                    <a href="/article/">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="content-card latest-guides-card">
+                    <a href="/article/">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="content-card latest-guides-card">
+                    <a href="/article/">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-12 d-xl-none">
+                <a href="/article/"class="button blank-button">
+                    VIEW ALL ARTICLES
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- LATEST Guides HTML Ends Here -->
+
+<!-- Ads HTML Starts Here -->
+<section class="ads">
+    <div class="container-fluid">
+        <div class="row row-12 ads-row equal">
+            <div class="col-xl-6">
+                <a href="#" class="h-100">
+                    <div class="content-card full-card h-100 dark-card">
+                        <div class="left">
+                            <img src="/images/logo.svg" class="img-fluid logo" alt="images">
+                            <h2>NEW TO<br/>WATCHES?</h2>
+                            <h5>Check out our beginner tutorials.</h5>
+                        </div>
+                        <div class="right">
+                            <img src="images/new-watch-icon.svg" class="img-fluid img-lg" alt="image">
+                            <img src="images/new-watch-mobile.svg" class="img-fluid img-sm" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="/glossary" class="h-100">
+                    <div class="content-card light-card footer-card bottom-card h-100">
+                        <img src="/images/book-open.svg" class="img-fluid" alt="image">
+                        <div class="number">
+                            <h2>371</h2>
+                            <p class="d-none d-xl-block d-lg-block d-md-block">Watch Terms</p>
+                            <p class="d-block d-xl-none d-lg-none d-md-none">INDUSTRY TERMS</p>
+                        </div>
+                        <div class="footer">
+                            <h6 class="d-none d-xl-block d-lg-block d-md-block">View the Glossary of Watch Terms</h6>
+                            <h6 class="d-block d-xl-none d-lg-none d-md-none">See what’s in the glossary</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="/ranking" class="h-100">
+                    <div class="content-card dark-card bottom-card single-card h-100">
+                        <img src="/images/bar-chart.svg" alt="">
+                        <h5>Brand Rankings</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Ads HTML Ends Here -->
+
+<!-- POPULAR  HTML Starts Here -->
+<section class="popular">
+    <div class="container-fluid">
+        <div class="row row-9 equal">
+            <div class="col-xl-6">
+                <h4>POPULAR </h4>
+            </div>
+            <div class="col-xl-6 d-none d-xl-block">
+                <a href="/article" class="button blank-button more">
+                    MORE
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card popuplar-card h-100">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-02.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <div class="content-wrap">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit augue ut
+                                euismod pulvinar. Fusce sodales.</p>
+                            <p class="count">8 Articles</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card popuplar-card h-100">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-02.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <div class="content-wrap">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit augue ut
+                                euismod pulvinar. Fusce sodales.</p>
+                            <p class="count">8 Articles</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card popuplar-card h-100">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-02.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <div class="content-wrap">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit augue ut
+                                euismod pulvinar. Fusce sodales.</p>
+                            <p class="count">8 Articles</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card popuplar-card h-100">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-02.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <div class="content-wrap">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit augue ut
+                                euismod pulvinar. Fusce sodales.</p>
+                            <p class="count">8 Articles</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 d-xl-none text-right">
+                <a href="#" class="button blank-button more">
+                    MORE
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="row row-9">
+            <div class="col-xl-6">
+                <h4>FEATURED</h4>
+            </div>
+            <div class="col-xl-6 d-none d-xl-block">
+                <a href="/article" class="button blank-button">
+                    VIEW ALL ARTICLES
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card latest-guides-card">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card latest-guides-card">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card latest-guides-card">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mob-card">
+                <div class="content-card latest-guides-card">
+                    <a href="/article">
+                        <div class="img-wrap">
+                            <img src="/images/image-01.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                        <div class="content-wrap">
+                            <h5>Lorem ipsum dolor sit amet</h5>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.127 19.981">
+                                    <g transform="translate(-0.009)">
+                                        <path id="Shape"
+                                              d="M8.563,19.981a8.563,8.563,0,1,1,0-17.126,8.693,8.693,0,0,1,5.328,1.9l1.332-1.332a18.28,18.28,0,0,1,1.427,1.332L15.223,6.089a8.1,8.1,0,0,1,1.9,5.329,8.527,8.527,0,0,1-8.563,8.563Zm0-15.223A6.59,6.59,0,0,0,1.9,11.418a6.59,6.59,0,0,0,6.661,6.66,6.589,6.589,0,0,0,6.66-6.66A6.59,6.59,0,0,0,8.563,4.757Zm.951,7.612h-1.9V6.66h1.9v5.709ZM11.418,1.9H5.709V0h5.71V1.9Z"
+                                              transform="translate(0.009)"/>
+                                    </g>
+                                </svg>
+                                5 minutes
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 d-xl-none">
+                <a href="/article" class="button blank-button article">
+                    VIEW ALL ARTICLES
+                    <svg id="round-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                        <path id="Shape"
+                              d="M10.5,21A10.5,10.5,0,0,1,3.075,3.075a10.5,10.5,0,0,1,14.85,14.85A10.431,10.431,0,0,1,10.5,21Zm0-18.968A8.468,8.468,0,1,0,18.968,10.5,8.478,8.478,0,0,0,10.5,2.032Zm.512,13.17a.523.523,0,0,1-.354-.14.5.5,0,0,1-.158-.37V11.855H5.589a.509.509,0,0,1-.509-.508V9.653a.509.509,0,0,1,.509-.509H10.5V6.308a.508.508,0,0,1,.868-.359l4.191,4.191a.511.511,0,0,1,0,.72l-4.191,4.191A.5.5,0,0,1,11.012,15.2Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="row row-9">
+            <div class="col-12">
+                <div class="request-content">
+                    <h5>Want to learn about something that is not here? Submit a topic and we’ll consider adding an
+                        article about it.</h5>
+                    <a href="#" class="mdc-button mdc-button--raised"> <span class="mdc-button__ripple"></span> REQUEST
+                        CONTENT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- POPULAR HTML Ends Here -->
+
+<!-- Get the latest in Watches. HTML Starts Here -->
+<section class="subscribe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="subscribe-wrap">
+                    <div class="subscribe-content">
+                        <div class="icon-wrap">
+                            <svg id="newsletter" xmlns="http://www.w3.org/2000/svg" width="80" height="80.001"
+                                 viewBox="0 0 80 80.001">
+                                <rect class="blue-fill" width="20.645" height="20.645"
+                                      transform="translate(6.452 6.452)"/>
+                                <path class="green-fill"
+                                      d="M11.613,23.225A11.613,11.613,0,1,1,23.225,11.613,11.626,11.626,0,0,1,11.613,23.225Zm0-20.645a9.032,9.032,0,1,0,9.032,9.032A9.043,9.043,0,0,0,11.613,2.58Z"
+                                      transform="translate(28.387 30.968)"/>
+                                <g id="Group">
+                                    <path class="white-fill" data-name="Shape"
+                                          d="M61.935,69.678H0V51.613H2.58V62.922l.577-1.154a8.986,8.986,0,0,1,8.079-4.994H50.7a8.985,8.985,0,0,1,8.078,4.994l.577,1.154V6.756L58.778,7.91A8.985,8.985,0,0,1,50.7,12.9H41.29v-2.58H50.7a6.414,6.414,0,0,0,5.77-3.567L58.558,2.58H41.29V0H61.935V69.677Zm-50.7-10.323a6.416,6.416,0,0,0-5.771,3.567L3.378,67.1h55.18L56.47,62.922a6.413,6.413,0,0,0-5.77-3.567Z"
+                                          transform="translate(18.065 10.323)"/>
+                                    <path class="white-fill" data-name="Shape"
+                                          d="M56.774,59.356H0V0H56.774V59.355ZM2.58,2.58V56.774H54.194V2.58Z"/>
+                                    <path class="white-fill" data-name="Shape"
+                                          d="M23.225,23.225H0V0H23.225V23.224ZM2.58,2.58V20.645H20.645V2.58Z"
+                                          transform="translate(5.161 5.161)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(30.968 5.161)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="15.484" height="2.581"
+                                          transform="translate(36.129 10.323)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(30.968 15.484)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(30.968 20.645)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="15.484" height="2.581"
+                                          transform="translate(30.968 25.806)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="15.484" height="2.581"
+                                          transform="translate(10.323 30.968)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(5.161 36.129)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(5.161 41.29)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="20.645" height="2.581"
+                                          transform="translate(5.161 46.452)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="2.581" height="2.581"
+                                          transform="translate(23.226 51.613)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="15.484" height="2.581"
+                                          transform="translate(5.161 51.613)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="2.581" height="2.581"
+                                          transform="translate(49.032 25.806)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="2.581" height="2.581"
+                                          transform="translate(30.968 10.323)"/>
+                                    <rect class="white-fill" data-name="Rectangle" width="2.581" height="2.581"
+                                          transform="translate(5.161 30.968)"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Get the latest in Watches.</h3>
+
+                        <!-- Form Starts Here -->
+                        <form>
+                            <div class="form-wrap">
+                                <input type="text" class="form-control" placeholder="Enter your Email adress">
+                                <!-- <button type="submit" class="button primary-button">SUBSCRIBE</button> -->
+                                <button type="submit" class="mdc-button mdc-button--raised"><span
+                                        class="mdc-button__ripple"></span> SUBSCRIBE
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Form Ends Here -->
+                    </div>
+
+                    <div class="social-wrap">
+                        <a href="#" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="30" viewBox="0 0 15 30">
+                                <path class="blue-fill"
+                                      d="M4.358,30V16.582H0V11.25H4.358v-4.2C4.358,2.484,7.063,0,11.011,0A35.491,35.491,0,0,1,15,.211V4.98H12.261c-2.148,0-2.563,1.055-2.563,2.6V11.25h4.847l-.665,5.332H9.7V30"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg id="instagram" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                 viewBox="0 0 28 28">
+                                <rect class="blue-fill" width="28" height="28" rx="5"/>
+                                <path class="black-stroke"
+                                      d="M11.14,4.779A5.6,5.6,0,1,1,6.422.061,5.6,5.6,0,0,1,11.14,4.779Z"
+                                      transform="translate(8.46 8.339)" fill="none" stroke-linecap="round"
+                                      stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+                                <path data-name="Path" d="M.7.7h0" transform="translate(21 5.6)" fill="none"
+                                      stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-miterlimit="10" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26.444" viewBox="0 0 32 26.444">
+                                <path class="blue-fill"
+                                      d="M32,.015A15.77,15.77,0,0,1,27.433,2.27,6.46,6.46,0,0,0,20.192.434,6.6,6.6,0,0,0,16,6.691V8.165A15.441,15.441,0,0,1,2.909,1.489s-5.818,13.263,7.273,19.158A16.771,16.771,0,0,1,0,23.594c13.091,7.368,29.091,0,29.091-16.947a6.716,6.716,0,0,0-.116-1.223A11.415,11.415,0,0,0,32,.015Z"
+                                      transform="translate(0 0)"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get the latest in Watches. HTML Ends Here -->
+
+{% endblock %}

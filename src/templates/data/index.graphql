@@ -1,0 +1,120 @@
+{
+  page:getHomePage {
+    _id
+    bannerButtonContent
+    bannerButtonText
+    bannerDescription
+    bannerFeaturedImage {
+      _id
+      caption
+      credit
+      description
+      filename
+      mimeType
+      path
+      sourceUrl
+      title
+      uploadStatus
+    }
+    bannerHeading
+    repeater {
+      categories {
+        _id
+        caegoryDescription
+        categoryTitle
+        includeInNavigationMenu
+        includeInMasterCategory
+        definition
+        categoryImage {
+          _id
+          caption
+          credit
+          description
+          filename
+          mimeType
+          path
+          sourceUrl
+          title
+          uploadStatus
+        }
+        icon {
+          _id
+          caption
+          credit
+          description
+          filename
+          mimeType
+          path
+          sourceUrl
+          title
+          uploadStatus
+        }
+      }
+    }
+
+    introQuote
+  }
+
+  glossaryList:getGlossaryTermList(sort: [{field: "termTitle", order: "asc"}]) {
+    items{
+        _id
+        termDefinition
+        termTitle
+      }
+    }
+
+ watches:getArticleList(sort: [{field: "publishDate", order: "desc"}], size: 4) {
+        items{
+        title
+        excerpt
+        publishDate
+        _updatedAt
+       articleImage {
+        filename
+        mimeType
+        path
+        uploadStatus
+      }
+        
+      }
+    }
+
+ allArticles:getArticleList(sort: [{field: "publishDate", order: "desc"}]) {
+        items{
+        title
+        excerpt
+        publishDate
+        _updatedAt
+       articleImage {
+        filename
+        mimeType
+        path
+        uploadStatus
+      }
+        
+      }
+    }
+
+ watchBrands:getBrandList(sort: [{field: "brandRank", order: "asc"}, {field: "brandRankChange", order: "desc"}, {field: "brandAveragePrice", order: "desc"}, {field: "brandName", order: "asc"}]) {
+        items{
+       _id
+    brandAveragePrice
+    brandName
+    brandImage {
+      _id
+      caption
+      credit
+      description
+      filename
+      mimeType
+      path
+      sourceUrl
+      title
+      uploadStatus
+    }
+    brandRank
+    brandRankChange
+        
+      }
+    }
+}

@@ -1,0 +1,81 @@
+query {
+  getArticleList(sort: [{field: "publishDate", order: "desc"}]){
+    total
+    items{
+      title
+      excerpt
+      articleLength
+      articleContent
+      publishDate
+      audioLink {
+        sourceUrl
+        description
+        caption
+        captionHtml
+        uploadStatus
+        mimeType
+        title
+        credit
+        creditHtml
+        s3Key
+        _id
+        _version
+        _contentTypeId
+        _contentTypeName
+        _createdAt
+        _createdBy
+        _updatedAt
+        _updatedBy
+        _enabled
+        _enabledAt
+        _schemaVersion
+        searchSummary
+      }
+      videoLink
+      category {
+        categoryTitle
+        definition
+        _id
+        _version
+        _contentTypeId
+        _contentTypeName
+        _createdAt
+        _createdBy
+        _updatedAt
+        _updatedBy
+        _enabled
+        _enabledAt
+        _schemaVersion
+        searchSummary
+      }
+      glossaryTerm {
+        termTitle
+        termDefinition
+        _id
+        _version
+        _contentTypeId
+        _contentTypeName
+        _createdAt
+        _createdBy
+        _updatedAt
+        _updatedBy
+        _enabled
+        _enabledAt
+        _schemaVersion
+        searchSummary
+      }
+      
+     articleImage {
+      filename
+      mimeType
+      path
+      uploadStatus
+    }
+      
+    }
+    
+  }
+  
+}
+
+

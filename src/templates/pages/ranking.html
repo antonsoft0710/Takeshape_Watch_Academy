@@ -1,0 +1,227 @@
+﻿{% extends "layouts/default.html" %}
+
+{% block content %}
+<style type="text/css">
+	body {
+		font-weight: normal;
+		font-family: Helvetica Neue, "Arial", sans-serif !important;
+		color: #000;
+		line-height: 1.3;
+		padding: 0;
+		margin: 0;
+	}
+</style>
+<div class="rankingTopBrands">
+	<div class="custom_container">
+		<ul>
+			{% for brand in home.watchBrands.items %}
+			<li>
+				<a href="#">
+					<img src="{{ brand.brandImage.path | image }}" alt="">					
+					<div>
+						<h5>{{ brand.brandName | safe}}</h5>
+
+						{% if brand.brandRankChange >= 0 %}
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+							C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+							c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+							C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+							c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+							c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+						</svg> 
+						<span style="color: #2BB55B;">{{ brand.brandRankChange | safe}}</span>
+						{% elif brand.brandRankChange < 0 %}
+						<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+							<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+							c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+							C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+						</svg>
+						<span style="color: #b52b2b;">{{ brand.brandRankChange * -1 | safe}}</span>
+						{% endif %}
+					</div>
+				</a>
+			</li>
+			{% endfor %}			
+		</ul>
+	</div>
+</div>
+<div class="custom_container">
+	<div class="ranking_wrapper">
+		<div class="rankingLeft">
+			<div class="promoBanner">
+				Promo Banner
+			</div>
+			<div class="rankingTable">
+				<div class="rankingSearchWrap">
+					<div class="rankingSearch">
+						<svg x="0px" y="0px"
+						width="22px" height="22px" viewBox="0 0 22 22" enable-background="new 0 0 22 22" xml:space="preserve">
+						<path fill="#FFFFFF" d="M21.707,20.293l-4.159-4.159c1.392-1.704,2.23-3.878,2.23-6.245C19.778,4.436,15.342,0,9.889,0
+						C4.436,0,0,4.436,0,9.889c0,5.452,4.436,9.889,9.889,9.889c2.367,0,4.54-0.838,6.245-2.23l4.159,4.159
+						C20.488,21.903,20.744,22,21,22s0.512-0.098,0.707-0.293C22.098,21.317,22.098,20.684,21.707,20.293z M2,9.889
+						C2,5.539,5.539,2,9.889,2c4.35,0,7.889,3.539,7.889,7.889c0,2.166-0.878,4.13-2.297,5.557c-0.006,0.006-0.015,0.008-0.021,0.014
+						c-0.006,0.006-0.008,0.015-0.014,0.021c-1.427,1.418-3.391,2.296-5.557,2.296C5.539,17.778,2,14.239,2,9.889z"/>
+					</svg>
+					<input type="search" class="form-control" placeholder="Search">
+				</div>
+				<a href="#." class="addBrandBtn">
+					<svg x="0px" y="0px" width="18px" height="18px" viewBox="0 0 18 18" enable-background="new 0 0 18 18" xml:space="preserve">
+						<g>
+							<path fill="#9798A7" d="M9,0.25C4.175,0.25,0.25,4.175,0.25,9c0,4.825,3.925,8.75,8.75,8.75c4.825,0,8.75-3.925,8.75-8.75
+							C17.75,4.175,13.825,0.25,9,0.25z M9,16.25c-3.998,0-7.25-3.252-7.25-7.25c0-3.998,3.252-7.25,7.25-7.25
+							c3.998,0,7.25,3.252,7.25,7.25C16.25,12.998,12.998,16.25,9,16.25z"/>
+							<path fill="#9798A7" d="M12.2,8.25H9.75V5.8c0-0.414-0.336-0.75-0.75-0.75S8.25,5.386,8.25,5.8v2.45H5.8
+							C5.386,8.25,5.05,8.586,5.05,9S5.386,9.75,5.8,9.75h2.45v2.45c0,0.414,0.336,0.75,0.75,0.75s0.75-0.336,0.75-0.75V9.75h2.45
+							c0.414,0,0.75-0.336,0.75-0.75S12.614,8.25,12.2,8.25z"/>
+						</g>
+					</svg>
+					<span style="color: #9798A7;">Add Brand</span>
+				</a>
+				<div class="clear"></div>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="text-align: center;">Rank</th>
+						<th>Brand</th>
+						<th>Rank Change (Week)</th>
+						<th>Averrage Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for brand in home.watchBrands.items %}			
+					<tr>
+						<td style="text-align: center;">{{ brand.brandRank | safe}}</td>
+						<td>
+							<div class="brandImgTitle">
+								<img src="{{ brand.brandImage.path | image }}" alt="">
+								<span>{{ brand.brandName | safe}} </span>
+							</div>
+						</td>
+						<td>
+							{% if brand.brandRankChange >= 0 %}
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#2BB55B" d="M8.354,4.146L4.855,0.647C4.851,0.644,4.847,0.64,4.843,0.636c-0.001,0-0.001-0.001-0.001-0.001
+								C4.796,0.592,4.745,0.56,4.69,0.538C4.636,0.515,4.577,0.502,4.515,0.5c0,0-0.001,0-0.001,0c0,0-0.001,0-0.001,0h0
+								c-0.009,0-0.017,0-0.025,0h0c0,0,0,0-0.001,0c0,0,0,0-0.001,0C4.423,0.502,4.364,0.515,4.31,0.538
+								C4.255,0.56,4.204,0.592,4.158,0.635c0,0.002,0,0.002-0.001,0.001C4.153,0.64,4.149,0.644,4.145,0.647L0.646,4.146
+								c-0.195,0.195-0.195,0.512,0,0.707s0.512,0.195,0.707,0L4,2.207V8c0,0.276,0.224,0.5,0.5,0.5S5,8.276,5,8V2.207l2.646,2.646
+								c0.195,0.195,0.512,0.195,0.707,0S8.549,4.342,8.354,4.146z"></path>
+							</svg> 
+							<span style="color: #2BB55B;">{{ brand.brandRankChange | safe}}</span>
+							{% elif brand.brandRankChange < 0 %}
+							<svg x="0px" y="0px" width="9px" height="9px" viewBox="0 0 9 9" enable-background="new 0 0 9 9" xml:space="preserve">
+								<path fill="#b52b2b" d="M0.6,4.9l3.5,3.5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0,0.2,0h0h0l0,0c0,0,0,0,0,0l0,0
+								c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0,0.1,0,0.2,0c0.1,0,0.1-0.1,0.2-0.1c0,0,0,0,0,0c0,0,0,0,0,0l3.5-3.5c0.2-0.2,0.2-0.5,0-0.7
+								C8.2,4,7.8,4,7.6,4.1L5,6.8V1c0-0.3-0.2-0.5-0.5-0.5S4,0.7,4,1v5.8L1.4,4.1C1.2,4,0.8,4,0.6,4.1S0.5,4.7,0.6,4.9z"></path>
+							</svg>
+							<span style="color: #b52b2b;">{{ brand.brandRankChange * -1 | safe}}</span>
+							{% endif %}
+						</td>
+						<td>${{ brand.brandAveragePrice | safe}}</td>
+					</tr>
+					{% endfor %}					
+				</tbody>
+			</table>
+			<ul class="rankingPaginations">
+				<li class="prev">
+					<a href="#.">
+						<svg width="6" height="9" viewBox="0 0 6 9">
+							<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M5.5 9L1 4.5 5.5 0"/>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a class="active" href="#.">
+						1
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						2
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						3
+					</a>
+				</li>
+				<li>
+					<a href="#.">
+						4
+					</a>
+				</li>
+				<li  class="next">
+					<a href="#.">
+						<svg width="6" height="9" viewBox="0 0 6 9">
+							<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M.5 9L5 4.5.5 0"/>
+						</svg>
+					</a>
+				</li>
+				<li  class="viewAll">
+					<a href="#.">
+						View All
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="rankingRight">
+		<div class="ranking_wrapper">
+			<div class="sideBlogPostsWrap">
+				<h4 class="rankingSideTitle">LATEST BOG POSTS <small style="float: right;"><a href="/allarticle"><img src="/images/round-arrow.svg" alt=""></a></small></h4>
+				<ul class="sideBlogPosts">
+					{% for article in home.watches.items %}
+					<li>
+						<a href="{{ article | route('articles')}}">
+							<img src="{{ article.articleImage.path | image }}" alt="">
+
+							<div class="sideBlogTxt">
+								<h5>{{ article.title | safe}}</h5>
+								<p>{{ article.excerpt | safe}}</p>
+							</div>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="sideInstaPostsWrap">
+				<h4 class="rankingSideTitle">INSTAGRAM FEED <small style="float: right;"><a href="#"><img src="/images/round-arrow.svg" alt=""></a></small></h4>
+				<ul class="sideInstaPostsli">
+					<li>
+						<img src="/images/category-04.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-05.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-06.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-07.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-08.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-09.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-10.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-11.jpg" alt="">
+					</li>
+					<li>
+						<img src="/images/category-12.jpg" alt="">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+{% endblock %}

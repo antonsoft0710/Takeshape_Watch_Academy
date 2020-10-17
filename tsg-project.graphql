@@ -1,0 +1,2454 @@
+schema {
+  query: Root
+  mutation: Mutations
+}
+
+type Article implements TSSearchable {
+  articleImage(locale: String, enableLocaleFallback: Boolean = true): Asset
+  articleLength: Int
+  audioLink(locale: String, enableLocaleFallback: Boolean = true): Asset
+  publishDate: String
+  articleContent: String!
+  videoLink: String
+  title: String!
+  category(locale: String, enableLocaleFallback: Boolean = true): ArticleCategory
+  excerpt: String
+  glossaryTerm(locale: String, enableLocaleFallback: Boolean = true): [GlossaryTerm]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  searchSummary: String
+}
+
+type ArticleCategory implements TSSearchable {
+  includeInNavigationMenu: Boolean
+  caegoryDescription: JSON
+  caegoryDescriptionHtml(
+    imageConfig: JSON
+    images: TSImagesConfig
+
+    """A prefix to be all CSS classes in the generated HTML"""
+    classPrefix: String = ""
+  ): String
+  categoryImage(locale: String, enableLocaleFallback: Boolean = true): Asset
+  categoryTitle: String!
+  icon(locale: String, enableLocaleFallback: Boolean = true): Asset
+  includeInMasterCategory: Boolean
+  definition: String
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  _references(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): UndefinedReferencePaginatedList
+  homePageSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): HomePagePaginatedList
+  articleSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): ArticlePaginatedList
+  searchSummary: String
+}
+
+type ArticleCategoryPaginatedList {
+  results: [ArticleCategory] @deprecated(reason: "Use items instead")
+  items: [ArticleCategory]
+  total: Int
+}
+
+"""A ArticleCategory search result"""
+type ArticleCategorySearchResult {
+  searchSummary: String
+  includeInNavigationMenu: Boolean
+  categoryTitle: String
+  includeInMasterCategory: Boolean
+  definition: String
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""ArticleCategory search results"""
+type ArticleCategorySearchResults {
+  results: [ArticleCategorySearchResult]
+  total: Int
+}
+
+type ArticlePaginatedList {
+  results: [Article] @deprecated(reason: "Use items instead")
+  items: [Article]
+  total: Int
+}
+
+"""A Article search result"""
+type ArticleSearchResult {
+  searchSummary: String
+  articleLength: Int
+  publishDate: String
+  articleContent: String
+  videoLink: String
+  title: String
+  excerpt: String
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""Article search results"""
+type ArticleSearchResults {
+  results: [ArticleSearchResult]
+  total: Int
+}
+
+"""The built-in TakeShape asset model"""
+type Asset implements TSSearchable {
+  sourceUrl: String
+  path: String!
+  filename: String!
+  description: String
+  caption: JSON
+  captionHtml(
+    imageConfig: JSON
+    images: TSImagesConfig
+
+    """A prefix to be all CSS classes in the generated HTML"""
+    classPrefix: String = ""
+  ): String
+  uploadStatus: String
+  mimeType: String
+  title: String
+  credit: JSON
+  creditHtml(
+    imageConfig: JSON
+    images: TSImagesConfig
+
+    """A prefix to be all CSS classes in the generated HTML"""
+    classPrefix: String = ""
+  ): String
+  s3Key: String @deprecated(reason: "Use path instead")
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  _references(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): UndefinedReferencePaginatedList
+  homePageSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): HomePagePaginatedList
+  articleCategorySet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): ArticleCategoryPaginatedList
+  brandSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): BrandPaginatedList
+  rankingPageSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): RankingPagePaginatedList
+  articleSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): ArticlePaginatedList
+  searchSummary: String
+}
+
+type AssetPaginatedList {
+  results: [Asset] @deprecated(reason: "Use items instead")
+  items: [Asset]
+  total: Int
+}
+
+"""A Asset search result"""
+type AssetSearchResult {
+  searchSummary: String
+  sourceUrl: String
+  path: String
+  filename: String
+  description: String
+  uploadStatus: String
+  mimeType: String
+  title: String
+  s3Key: String
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""Asset search results"""
+type AssetSearchResults {
+  results: [AssetSearchResult]
+  total: Int
+}
+
+"""The built-in TakeShape asset model"""
+type BaseAsset implements TSSearchable {
+  title: String
+  description: String
+  filename: String!
+  caption: JSON
+  captionHtml(
+    imageConfig: JSON
+    images: TSImagesConfig
+
+    """A prefix to be all CSS classes in the generated HTML"""
+    classPrefix: String = ""
+  ): String
+  credit: JSON
+  creditHtml(
+    imageConfig: JSON
+    images: TSImagesConfig
+
+    """A prefix to be all CSS classes in the generated HTML"""
+    classPrefix: String = ""
+  ): String
+  path: String!
+  mimeType: String
+  sourceUrl: String
+  uploadStatus: String
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean @deprecated(reason: "Use _status instead")
+  _enabledAt: String @deprecated(reason: "Use a custom date field instead")
+  _status: DefaultWorkflow
+  searchSummary: String
+}
+
+type Brand implements TSSearchable {
+  brandName: String!
+  brandRank: Int
+  brandRankChange: Int
+  brandImage(locale: String, enableLocaleFallback: Boolean = true): Asset
+  brandKeywords: String
+  brandAveragePrice: Int
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  _references(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): UndefinedReferencePaginatedList
+  rankingPageSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): RankingPagePaginatedList
+  searchSummary: String
+}
+
+type BrandPaginatedList {
+  results: [Brand] @deprecated(reason: "Use items instead")
+  items: [Brand]
+  total: Int
+}
+
+"""A Brand search result"""
+type BrandSearchResult {
+  searchSummary: String
+  brandName: String
+  brandRank: Int
+  brandRankChange: Int
+  brandKeywords: String
+  brandAveragePrice: Int
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""Brand search results"""
+type BrandSearchResults {
+  results: [BrandSearchResult]
+  total: Int
+}
+
+"""Describes a structural update to an array of data."""
+input ContentStructureInput {
+  """A deep path to the array being updated (e.g. a.b[1].c)."""
+  path: String!
+
+  """
+  An array where the indices represent the to index, and the values represent
+  the from index.For example to transform ["a","b","c","d"] into ["c","a"], this
+  value would be [2,0].
+  """
+  structure: [Int]
+}
+
+"""create ArticleCategory input"""
+input CreateArticleCategoryInput {
+  includeInNavigationMenu: Boolean
+  caegoryDescription: JSON
+  categoryImage: TSRelationshipInput
+  categoryTitle: String!
+  icon: TSRelationshipInput
+  includeInMasterCategory: Boolean
+  definition: String
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateArticleCategoryResult {
+  clientMutationId: String
+  result: ArticleCategory
+}
+
+"""create Article input"""
+input CreateArticleInput {
+  articleImage: TSRelationshipInput
+  articleLength: Int
+  audioLink: TSRelationshipInput
+  publishDate: String
+  articleContent: String!
+  videoLink: String
+  title: String!
+  category: TSRelationshipInput
+  excerpt: String
+  glossaryTerm: [TSRelationshipInput]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateArticleResult {
+  clientMutationId: String
+  result: Article
+}
+
+"""create Asset input"""
+input CreateAssetInput {
+  sourceUrl: String
+  path: String!
+  filename: String!
+  description: String
+  caption: JSON
+  uploadStatus: String
+  mimeType: String
+  title: String
+  credit: JSON
+  s3Key: String
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateAssetResult {
+  clientMutationId: String
+  result: Asset
+}
+
+"""create Brand input"""
+input CreateBrandInput {
+  brandName: String!
+  brandRank: Int
+  brandRankChange: Int
+  brandImage: TSRelationshipInput
+  brandKeywords: String
+  brandAveragePrice: Int
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateBrandResult {
+  clientMutationId: String
+  result: Brand
+}
+
+"""create GlossaryTerm input"""
+input CreateGlossaryTermInput {
+  termTitle: String!
+  termDefinition: String!
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateGlossaryTermResult {
+  clientMutationId: String
+  result: GlossaryTerm
+}
+
+"""create TsStaticSite input"""
+input CreateTsStaticSiteInput {
+  title: String!
+  baseUrl: String
+  provider: String!
+  idKey: String
+  secretKey: String
+  destination: String!
+  privateAcl: Boolean
+  environmentVariables: [TsStaticSiteEnvironmentVariablesInput]
+  triggers: [TsStaticSiteTriggersInput]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type CreateTsStaticSiteResult {
+  clientMutationId: String
+  result: TsStaticSite
+}
+
+enum DefaultWorkflow {
+  disabled
+  enabled
+}
+
+"""delete ArticleCategory input"""
+input DeleteArticleCategoryInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteArticleCategoryResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+"""delete Article input"""
+input DeleteArticleInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteArticleResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+"""delete Asset input"""
+input DeleteAssetInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteAssetResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+"""delete Brand input"""
+input DeleteBrandInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteBrandResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+"""delete GlossaryTerm input"""
+input DeleteGlossaryTermInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteGlossaryTermResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+"""delete TsStaticSite input"""
+input DeleteTsStaticSiteInput {
+  clientMutationId: String
+  _id: ID!
+}
+
+type DeleteTsStaticSiteResult {
+  clientMutationId: String
+  result: Boolean
+}
+
+type GlossaryPage implements TSSearchable {
+  relationship(locale: String, enableLocaleFallback: Boolean = true): [GlossaryTerm]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  searchSummary: String
+}
+
+type GlossaryPagePaginatedList {
+  results: [GlossaryPage] @deprecated(reason: "Use items instead")
+  items: [GlossaryPage]
+  total: Int
+}
+
+type GlossaryTerm implements TSSearchable {
+  termTitle: String!
+  termDefinition: String!
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  _references(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): UndefinedReferencePaginatedList
+  articleSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): ArticlePaginatedList
+  glossaryPageSet(filter: JSON, sort: [TSSearchSort], from: Int, size: Int, locale: String, enableLocaleFallback: Boolean = true): GlossaryPagePaginatedList
+  searchSummary: String
+}
+
+type GlossaryTermPaginatedList {
+  results: [GlossaryTerm] @deprecated(reason: "Use items instead")
+  items: [GlossaryTerm]
+  total: Int
+}
+
+"""A GlossaryTerm search result"""
+type GlossaryTermSearchResult {
+  searchSummary: String
+  termTitle: String
+  termDefinition: String
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""GlossaryTerm search results"""
+type GlossaryTermSearchResults {
+  results: [GlossaryTermSearchResult]
+  total: Int
+}
+
+"""Site Front Page"""
+type HomePage implements TSSearchable {
+  bannerButtonContent: String
+  bannerHeading: String
+  bannerFeaturedImage(locale: String, enableLocaleFallback: Boolean = true): Asset
+  bannerButtonText: String
+  introQuote: String!
+  bannerDescription: String
+  repeater: [HomePageRepeater]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  searchSummary: String
+}
+
+type HomePagePaginatedList {
+  results: [HomePage] @deprecated(reason: "Use items instead")
+  items: [HomePage]
+  total: Int
+}
+
+type HomePageRepeater {
+  categories(locale: String, enableLocaleFallback: Boolean = true): [ArticleCategory]
+}
+
+input HomePageRepeaterInput {
+  categories: [TSRelationshipInput]
+}
+
+type HttpHeader {
+  key: String
+  value: String
+}
+
+input HttpHeaderInput {
+  key: String
+  value: String
+}
+
+type ImportResultType {
+  countImported: Int
+  ids: [ID]
+  rejectedItems: [RejectedImportItem]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type Mutations {
+  """Create Project"""
+  tsCreateProject(name: String!, template: String, type: String, defaultTimezone: String!): TSProjectListItem
+
+  """Create a Lock"""
+  tsCreateLock(contentTypeId: ID, id: ID): TSLock
+
+  """Extend a lock Project"""
+  tsExtendLock(contentTypeId: ID, id: ID): TSLock
+
+  """Remove a Lock"""
+  tsRemoveLock(contentTypeId: ID, id: ID): Boolean
+
+  """Remove a Lock"""
+  tsBreakLock(contentTypeId: ID, id: ID): Boolean
+
+  """Create an API Key"""
+  tsCreateApiKey(name: String, role: String): TSApiKey
+
+  """Delete an API Key"""
+  tsDeleteApiKey(id: ID): Boolean
+
+  """Create role"""
+  tsCreateRole(input: TSRoleInput!): TSRole
+
+  """Update role"""
+  tsUpdateRole(input: TSRoleInput!): TSRole
+
+  """Delete role"""
+  tsDeleteRole(name: String!): Boolean
+
+  """Update webhooks"""
+  tsUpdateWebhooks(input: TSWebhooksInput!): TSWebhooks
+
+  """Update Default Locale for Project"""
+  tsUpdateDefaultLocale(defaultLocale: String!, version: Int!): JSON
+
+  """Add Locale to Project"""
+  tsAddLocale(locale: String!, version: Int!): JSON
+
+  """Remove Locale from Project"""
+  tsRemoveLocale(locale: String!, version: Int!): JSON
+
+  """Add a ContentType to the project Schema"""
+  tsAddContentType(projectId: ID, version: Int!, contentType: JSON!): JSON
+
+  """Remove a ContentType from the project Schema"""
+  tsRemoveContentType(projectId: ID, version: Int!, contentTypeId: ID!): JSON
+
+  """Update a ContentType in the project Schema"""
+  tsUpdateContentType(projectId: ID, version: Int!, contentTypeId: ID!, contentType: JSON!): JSON
+
+  """Create Workflow"""
+  tsAddWorkflow(input: TSSaveWorkflowInput!): TSSaveWorkflowResponse
+
+  """Update Workflow"""
+  tsUpdateWorkflow(input: TSUpdateWorkflowInput!): TSSaveWorkflowResponse
+
+  """Delete Workflow"""
+  tsDeleteWorkflow(input: TSDeleteWorkflowInput): TSRemoveWorkflowResponse
+
+  """Schedule content status update"""
+  tsScheduleStatusUpdate(input: TSScheduleStatusUpdateInput!): TSStatusUpdate
+
+  """Cancel scheduled content status update"""
+  tsCancelStatusUpdate(input: TSCancelStatusUpdateInput!): Boolean
+
+  """Update Project"""
+  tsUpdateProject(id: ID, name: String, avatarId: ID, defaultTimezone: String): TSProject
+
+  """Update Project Billing"""
+  tsUpdateProjectBilling(id: ID, token: String, planId: String, coupon: String, email: String): TSBilling
+
+  """Update Project Permissions"""
+  tsUpdateProjectPermissions(userId: ID, role: String!): TSPermissions
+
+  """Update Invite Role"""
+  tsUpdateInviteRole(email: String!, role: String!): TSInvite
+
+  """Cancel Project Invite"""
+  tsCancelProjectInvite(email: String!): TSInvite
+
+  """Remove Project Member"""
+  tsRemoveProjectMember(userId: ID): TSPermissions
+
+  """Deactivate project"""
+  tsDeleteProject(id: ID!): Boolean
+
+  """Register a setup step as completed"""
+  tsCompleteSetupStep(stepKey: String!): Boolean
+
+  """Update a token for a integration provider"""
+  tsUpdateIntegrationToken(provider: String!, token: String): TSIntegrationToken
+
+  """Initiate upload process for asset(s)"""
+  uploadAssets(projectId: ID, files: [TSFile]!): [Upload]
+
+  """Replace an asset file"""
+  replaceAsset(projectId: ID, _id: ID!, _version: Int!, file: TSFile!): Upload
+
+  """Create Asset"""
+  createAsset(input: CreateAssetInput!): CreateAssetResult
+
+  """Update Asset"""
+  updateAsset(input: UpdateAssetInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateAssetResult
+
+  """Delete Asset"""
+  deleteAsset(input: DeleteAssetInput!): DeleteAssetResult
+
+  """
+  Create Asset items from Asset csv, only single layer string fields are supported.
+  """
+  importAssetListFromCSV(assetId: ID!, importColumns: [String]): ImportResultType
+
+  """Create TsStaticSite"""
+  createTsStaticSite(input: CreateTsStaticSiteInput!): CreateTsStaticSiteResult
+
+  """Update TsStaticSite"""
+  updateTsStaticSite(input: UpdateTsStaticSiteInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateTsStaticSiteResult
+
+  """Delete TsStaticSite"""
+  deleteTsStaticSite(input: DeleteTsStaticSiteInput!): DeleteTsStaticSiteResult
+
+  """Update HomePage"""
+  updateHomePage(input: UpdateHomePageInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateHomePageResult
+
+  """Create ArticleCategory"""
+  createArticleCategory(input: CreateArticleCategoryInput!): CreateArticleCategoryResult
+
+  """Update ArticleCategory"""
+  updateArticleCategory(input: UpdateArticleCategoryInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateArticleCategoryResult
+
+  """Delete ArticleCategory"""
+  deleteArticleCategory(input: DeleteArticleCategoryInput!): DeleteArticleCategoryResult
+
+  """
+  Create ArticleCategory items from Asset csv, only single layer string fields are supported.
+  """
+  importArticleCategoryListFromCSV(assetId: ID!, importColumns: [String]): ImportResultType
+
+  """Create GlossaryTerm"""
+  createGlossaryTerm(input: CreateGlossaryTermInput!): CreateGlossaryTermResult
+
+  """Update GlossaryTerm"""
+  updateGlossaryTerm(input: UpdateGlossaryTermInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateGlossaryTermResult
+
+  """Delete GlossaryTerm"""
+  deleteGlossaryTerm(input: DeleteGlossaryTermInput!): DeleteGlossaryTermResult
+
+  """
+  Create GlossaryTerm items from Asset csv, only single layer string fields are supported.
+  """
+  importGlossaryTermListFromCSV(assetId: ID!, importColumns: [String]): ImportResultType
+
+  """Create Brand"""
+  createBrand(input: CreateBrandInput!): CreateBrandResult
+
+  """Update Brand"""
+  updateBrand(input: UpdateBrandInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateBrandResult
+
+  """Delete Brand"""
+  deleteBrand(input: DeleteBrandInput!): DeleteBrandResult
+
+  """
+  Create Brand items from Asset csv, only single layer string fields are supported.
+  """
+  importBrandListFromCSV(assetId: ID!, importColumns: [String]): ImportResultType
+
+  """Update RankingPage"""
+  updateRankingPage(input: UpdateRankingPageInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateRankingPageResult
+
+  """Create Article"""
+  createArticle(input: CreateArticleInput!): CreateArticleResult
+
+  """Update Article"""
+  updateArticle(input: UpdateArticleInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateArticleResult
+
+  """Delete Article"""
+  deleteArticle(input: DeleteArticleInput!): DeleteArticleResult
+
+  """
+  Create Article items from Asset csv, only single layer string fields are supported.
+  """
+  importArticleListFromCSV(assetId: ID!, importColumns: [String]): ImportResultType
+
+  """Update GlossaryPage"""
+  updateGlossaryPage(input: UpdateGlossaryPageInput!, structure: [ContentStructureInput], locale: String, enableLocaleFallback: Boolean = true): UpdateGlossaryPageResult
+}
+
+type RankingPage implements TSSearchable {
+  promoBanner(locale: String, enableLocaleFallback: Boolean = true): Asset
+  repeater: [RankingPageRepeater]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  searchSummary: String
+}
+
+type RankingPagePaginatedList {
+  results: [RankingPage] @deprecated(reason: "Use items instead")
+  items: [RankingPage]
+  total: Int
+}
+
+type RankingPageRepeater {
+  brand(locale: String, enableLocaleFallback: Boolean = true): [Brand]
+}
+
+input RankingPageRepeaterInput {
+  brand: [TSRelationshipInput]
+}
+
+"""Object representing a rejected item processed during the import."""
+type RejectedImportItem {
+  """Index of the rejected item in the import."""
+  itemNumber: Int!
+
+  """Beautified error messages interpreted from the raw error objects."""
+  errors: [String]
+
+  """Raw error objects from the validator."""
+  rawErrors: [JSON]
+}
+
+"""Root of the Schema"""
+type Root {
+  """Activity Log"""
+  tsGetActivityLog(filters: JSON): [TSActivityLogItem]
+
+  """Most Recent Static Site Deploys"""
+  tsGetLatestSiteDeploys: [TSActivityLogItem]
+
+  """List of Projects"""
+  tsGetProjectList: [TSProjectListItem]
+
+  """List of active Project Members and the content they have open"""
+  tsGetProjectMembersLocationList: [TSMemberLocation]
+
+  """List of project templates available for import."""
+  tsGetProjectTemplateList: [TSProjectTemplate]
+
+  """Get the status of a site deploy"""
+  tsSiteDeployStatus(siteId: ID): TSSite
+
+  """Get the status of a site deploy"""
+  tsGetContentUsage(id: ID!): [TSContentUsage]
+
+  """Get a Lock by id"""
+  tsIsLocked(contentTypeId: ID, id: ID): TSLock
+
+  """Get an API key by key and project"""
+  tsGetApiKey(id: ID): TSApiKey
+
+  """Get all API Keys for a Project"""
+  tsGetApiKeysByProject: [TSApiKey]
+
+  """Get user/API role"""
+  tsGetRole(name: String!): TSRole
+
+  """List user/API roles for the current project"""
+  tsGetRoleList: TSRolePaginatedList
+
+  """Get all webhooks"""
+  tsGetWebhooks: TSWebhooks
+
+  """Get specific webhook history item by webhookUrl and invocationTime."""
+  tsGetWebhookHistoryItem(webhookUrl: String!, invocationTime: String): TSWebhookHistory
+
+  """
+  Get webhook history items for a webhookUrl. Filter for a window of invocationTime with the from and to arguments.
+  """
+  tsGetWebhookHistory(
+    webhookUrl: String!
+
+    """Filter start time, inclusive, as an ISO8601 date string."""
+    from: String
+
+    """Filter end time, inclusive, as an ISO8601 date string."""
+    to: String
+  ): [TSWebhookHistory]
+
+  """Get Locales for Project"""
+  tsGetLocales: TSLocales
+
+  """Get upcoming scheduled content status updates"""
+  tsGetStatusUpdateList(contentId: String!, contentTypeName: String!): TSStatusUpdateList
+
+  """Get a Project by id"""
+  tsGetProject(id: ID): TSProject
+
+  """List of Project Members"""
+  tsGetProjectMembers(id: ID): [TSUser]
+
+  """List of Project Members"""
+  tsGetProjectAdmins: [TSUser]
+
+  """List of Project Plans"""
+  tsGetPlanList: [TSBillingPlan]
+
+  """List all payments for a project"""
+  tsGetPaymentList(cursor: ID): TSBillingPaymentCursorPaginatedList
+  search(
+    terms: String
+    contentTypeNames: [String]
+    contentTypeIds: [String]
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TSSearchResults
+  taxonomySuggest(
+    terms: String
+    contentTypeNames: [String]
+    contentTypeIds: [String]
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TSSuggestionPaginatedList
+
+  """List Versions for a piece of content"""
+  getContentVersion(id: ID!, version: Int!, locale: String, enableLocaleFallback: Boolean = true): TSVersionResponse
+
+  """List Versions for a piece of content"""
+  getContentVersionList(id: ID!, from: Int, size: Int): TSVersionsPaginatedList
+
+  """Returns a list asset in natural order."""
+  getAssetList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): AssetPaginatedList
+
+  """Get a asset by ID"""
+  getAsset(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Asset
+
+  """Search the asset index by keyword"""
+  searchAssetIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): AssetSearchResults
+
+  """Returns a list tsStaticSite in natural order."""
+  getTsStaticSiteList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TsStaticSitePaginatedList
+
+  """Get a tsStaticSite by ID"""
+  getTsStaticSite(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): TsStaticSite
+
+  """Search the tsStaticSite index by keyword"""
+  searchTsStaticSiteIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TsStaticSiteSearchResults
+
+  """Get the homePage"""
+  homePage(locale: String, enableLocaleFallback: Boolean = true): HomePage @deprecated(reason: "Use getHomePage instead")
+
+  """Get the homePage"""
+  getHomePage(locale: String, enableLocaleFallback: Boolean = true): HomePage
+
+  """Returns a list articleCategory in natural order."""
+  getArticleCategoryList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleCategoryPaginatedList
+
+  """Get a articleCategory by ID"""
+  getArticleCategory(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): ArticleCategory
+
+  """Search the articleCategory index by keyword"""
+  searchArticleCategoryIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleCategorySearchResults
+
+  """Returns a list glossaryTerm in natural order."""
+  getGlossaryTermList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): GlossaryTermPaginatedList
+
+  """Get a glossaryTerm by ID"""
+  getGlossaryTerm(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): GlossaryTerm
+
+  """Search the glossaryTerm index by keyword"""
+  searchGlossaryTermIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): GlossaryTermSearchResults
+
+  """Returns a list brand in natural order."""
+  getBrandList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): BrandPaginatedList
+
+  """Get a brand by ID"""
+  getBrand(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Brand
+
+  """Search the brand index by keyword"""
+  searchBrandIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): BrandSearchResults
+
+  """Get the rankingPage"""
+  rankingPage(locale: String, enableLocaleFallback: Boolean = true): RankingPage @deprecated(reason: "Use getRankingPage instead")
+
+  """Get the rankingPage"""
+  getRankingPage(locale: String, enableLocaleFallback: Boolean = true): RankingPage
+
+  """Returns a list article in natural order."""
+  getArticleList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticlePaginatedList
+
+  """Get a article by ID"""
+  getArticle(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Article
+
+  """Search the article index by keyword"""
+  searchArticleIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleSearchResults
+
+  """Get the glossaryPage"""
+  glossaryPage(locale: String, enableLocaleFallback: Boolean = true): GlossaryPage @deprecated(reason: "Use getGlossaryPage instead")
+
+  """Get the glossaryPage"""
+  getGlossaryPage(locale: String, enableLocaleFallback: Boolean = true): GlossaryPage
+  withContext(locale: String, enableLocaleFallback: Boolean): WithContext
+}
+
+type TSActivityLogItem {
+  activityType: String
+  userId: ID
+  username: String
+  projectId: ID
+  siteId: ID
+  stage: String
+  description: String
+  timestamp: String
+  metadata: JSON
+}
+
+type TSApiKey {
+  projectId: ID
+  name: String
+  role: String
+  permissions: JSON
+  lastUsed: String
+  apiKey: String
+  id: ID
+}
+
+type TSBilling {
+  enterprise: Boolean
+  cardDetails: TSBillingCardDetails
+  plan: TSBillingPlan
+  discount: TSBillingDiscount
+  trialEnd: String
+  email: String
+}
+
+type TSBillingAmount {
+  total: Int
+  subtotal: Int
+  refund: Int
+  discount: TSBillingDiscount
+}
+
+type TSBillingCardDetails {
+  brand: String
+  cvcCheck: String
+  expMonth: Int
+  expYear: Int
+  last4: String
+}
+
+type TSBillingDiscount {
+  percentOff: Int
+  amountOff: Int
+  duration: String
+  code: String
+}
+
+type TSBillingEntitlements {
+  users: Int
+  apiRequests: Int
+  apiRateLimit: Int
+  contentEntries: Int
+  deployTargets: Int
+  webhooks: Boolean
+  locales: Int
+  roles: Int
+  workflows: Int
+}
+
+type TSBillingPayment {
+  date: String
+  plan: String
+  status: String
+  amount: TSBillingAmount
+  method: String
+}
+
+type TSBillingPaymentCursorPaginatedList {
+  items: [TSBillingPayment]
+  cursor: ID
+  hasMore: Boolean
+}
+
+type TSBillingPlan {
+  id: String
+  name: String
+  amount: Int
+  created: String
+  currency: String
+  interval: String
+  intervalCount: Int
+  entitlements: TSBillingEntitlements
+  trialPeriodDays: String
+}
+
+input TSCancelStatusUpdateInput {
+  contentId: String!
+  contentTypeName: String!
+  timestamp: String!
+}
+
+type TSContentLocation {
+  contentId: String
+  contentTypeId: String
+  hasLock: Boolean
+}
+
+type TSContentUsage {
+  siteId: ID
+  siteTitle: String
+  deployedAt: String
+  baseUrl: String
+  usages: [TSPathUsage]
+}
+
+input TSDeleteWorkflowInput {
+  version: Int!
+  name: String!
+}
+
+input TSFile {
+  name: String!
+  type: String!
+}
+
+input TSImagesConfig {
+  """Default image parameters. See https://docs.imgix.com/apis/url """
+  default: JSON
+
+  """Small image parameters. See https://docs.imgix.com/apis/url """
+  small: JSON
+
+  """Medium image parameters. See https://docs.imgix.com/apis/url """
+  medium: JSON
+
+  """Large image parameters. See https://docs.imgix.com/apis/url """
+  large: JSON
+}
+
+type TSIntegrationToken {
+  provider: String!
+  token: String
+}
+
+type TSInvite {
+  inviteCode: ID
+  email: ID
+  role: String
+  projectId: ID
+  inviterUserId: ID
+  status: String
+}
+
+type TSLocales {
+  defaultLocale: String!
+  locales: [String]
+  version: Int!
+}
+
+type TSLock {
+  user: TSUser
+  expires: String
+}
+
+type TSMemberLocation {
+  userId: String!
+  contentList: [TSContentLocation]
+}
+
+type TSPathUsage {
+  path: String
+  depth: Int
+}
+
+type TSPermissions {
+  userId: ID
+  projectId: ID
+  role: String
+}
+
+"""
+A Project is you main workspace it stores the content that powers your API
+"""
+type TSProject {
+  id: ID
+  name: String
+  template: TSProjectTemplate
+  invite: String
+  users: [TSUser]
+
+  """Takeshape project schema"""
+  schema: JSON
+
+  """Takeshape project schema"""
+  billing: TSBilling
+
+  """Project status object"""
+  status: JSON
+
+  """Project avatar"""
+  avatar: BaseAsset
+
+  """Default project timezone"""
+  defaultTimezone: String!
+  integrationTokens: [TSIntegrationToken]
+}
+
+"""
+A Project is you main workspace it stores the content that powers your API
+"""
+type TSProjectListItem {
+  id: ID
+  name: String
+  invite: String
+  type: String
+
+  """Project status object"""
+  status: JSON
+
+  """Project avatar"""
+  avatar: BaseAsset
+
+  """Default project timezone"""
+  defaultTimezone: String!
+}
+
+"""A project template available for import."""
+type TSProjectTemplate {
+  id: String!
+  name: String!
+  description: String
+  avatarPath: String
+  glitchProjectName: String
+  sourcePath: String!
+}
+
+input TSRelationshipInput {
+  contentTypeId: String!
+  id: String!
+}
+
+type TSRemoveWorkflowResponse {
+  name: String
+  schemaVersion: Int
+  removed: Boolean
+}
+
+type TSResourceActions {
+  resource: String!
+  actions: [String]
+}
+
+input TSResourceActionsInput {
+  resource: String!
+  actions: [String]
+}
+
+type TSRole {
+  name: String!
+  permissions: JSONObject!
+  created: String
+  updated: String
+  builtIn: Boolean
+}
+
+input TSRoleInput {
+  name: String!
+  permissions: JSONObject!
+  created: String
+  updated: String
+}
+
+type TSRolePaginatedList {
+  items: [TSRole]
+  total: Int
+  from: Int
+  size: Int
+}
+
+input TSSaveWorkflowInput {
+  version: Int!
+  workflow: TSWorkflowInput!
+}
+
+type TSSaveWorkflowResponse {
+  projectId: String
+  schemaVersion: Int
+  workflow: TSWorkflow
+}
+
+input TSScheduleStatusUpdateInput {
+  timestamp: String!
+  contentId: String!
+  status: String!
+  contentTypeName: String!
+}
+
+interface TSSearchable {
+  _id: ID
+  _contentTypeId: String
+  searchSummary: String
+}
+
+"""TS search results"""
+type TSSearchResults {
+  results: [TSSearchable]
+  total: Int
+}
+
+input TSSearchSort {
+  field: String!
+
+  """"asc" for ascending or "desc" for descending"""
+  order: String!
+}
+
+type TSSite {
+  siteId: ID
+  status: String
+  message: String
+}
+
+"""The built-in TakeShape static site model"""
+type TsStaticSite implements TSSearchable {
+  title: String!
+  baseUrl: String
+  provider: String!
+  idKey: String
+  secretKey: String
+  destination: String!
+  privateAcl: Boolean
+  environmentVariables: [TsStaticSiteEnvironmentVariables]
+  triggers: [TsStaticSiteTriggers]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  searchSummary: String
+}
+
+type TsStaticSiteEnvironmentVariables {
+  name: String
+  value: String
+}
+
+input TsStaticSiteEnvironmentVariablesInput {
+  name: String
+  value: String
+}
+
+type TsStaticSitePaginatedList {
+  results: [TsStaticSite] @deprecated(reason: "Use items instead")
+  items: [TsStaticSite]
+  total: Int
+}
+
+"""A TsStaticSite search result"""
+type TsStaticSiteSearchResult {
+  searchSummary: String
+  title: String
+  baseUrl: String
+  provider: String
+  idKey: String
+  destination: String
+  privateAcl: Boolean
+  _id: String
+  _version: Int
+  _contentTypeId: String
+  _contentTypeName: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+}
+
+"""TsStaticSite search results"""
+type TsStaticSiteSearchResults {
+  results: [TsStaticSiteSearchResult]
+  total: Int
+}
+
+type TsStaticSiteTriggers {
+  contentTypeId: String
+  status: String
+}
+
+input TsStaticSiteTriggersInput {
+  contentTypeId: String
+  status: String
+}
+
+type TSStatusUpdate {
+  id: String!
+  timestamp: String!
+  type: String!
+  payload: JSONObject
+}
+
+type TSStatusUpdateList {
+  items: [TSStatusUpdate]
+  total: Int
+}
+
+type TSSuggestion {
+  _id: ID
+  _contentTypeId: ID
+  _contentTypeName: String
+  text: String
+  summary: String
+}
+
+type TSSuggestionPaginatedList {
+  results: [TSSuggestion] @deprecated(reason: "Use items instead")
+  items: [TSSuggestion]
+  total: Int
+}
+
+input TSUpdateWorkflowInput {
+  version: Int!
+  name: String!
+  workflow: TSWorkflowInput!
+}
+
+type TSUser {
+  id: ID
+  email: String
+  fullName: String
+  role: String
+  avatarPath: String
+}
+
+type TSVersion {
+  id: String
+  version: Int
+  status: String
+  enabled: Boolean
+  color: String
+  updatedAt: String
+  updatedBy: TSUser
+  item(locale: String, enableLocaleFallback: Boolean = true): TSVersionResponse
+}
+
+type TSVersionResponse {
+  content: JSONObject
+  schema: JSONObject
+}
+
+type TSVersionsPaginatedList {
+  items: [TSVersion]
+  total: Int
+  from: Int
+  size: Int
+}
+
+type TSWebhook {
+  webhookUrl: String!
+  headers: [HttpHeader]
+  resourceActions: [TSResourceActions]
+}
+
+type TSWebhookHistory {
+  _invocationTime: String!
+  projectId: ID!
+  webhookUrl: String!
+  stats: TSWebhookHistoryStats!
+}
+
+type TSWebhookHistoryError {
+  name: String
+  message: String
+}
+
+type TSWebhookHistoryRequest {
+  url: String!
+  headers: JSON
+  body: JSON
+}
+
+type TSWebhookHistoryResponse {
+  status: String!
+  statusText: String
+  url: String!
+  headers: JSON
+  body: JSON
+}
+
+type TSWebhookHistoryStats {
+  succeeded: Boolean!
+  retrying: Boolean!
+  invocationStartTime: String!
+  invocationDuration: Int!
+  request: TSWebhookHistoryRequest!
+  response: TSWebhookHistoryResponse
+  error: TSWebhookHistoryError
+}
+
+input TSWebhookInput {
+  webhookUrl: String!
+  headers: [HttpHeaderInput]
+  resourceActions: [TSResourceActionsInput]
+}
+
+type TSWebhooks {
+  secret: String
+  webhooks: [TSWebhook]
+}
+
+input TSWebhooksInput {
+  resetSecret: Boolean
+  webhooks: [TSWebhookInput]
+}
+
+type TSWorkflow {
+  name: String!
+  title: String!
+  steps: [TSWorkflowStep]
+}
+
+input TSWorkflowInput {
+  name: String!
+  title: String!
+  steps: [TSWorkflowStepInput]
+}
+
+type TSWorkflowStep {
+  name: String!
+  title: String!
+  description: String
+  color: String!
+  live: Boolean!
+  key: String!
+  canEdit: [String]
+}
+
+input TSWorkflowStepInput {
+  name: String!
+  title: String!
+  description: String
+  color: String!
+  live: Boolean!
+  key: String!
+  canEdit: [String]
+}
+
+union UndefinedReference = HomePage | ArticleCategory | Brand | RankingPage | Article
+
+type UndefinedReferencePaginatedList {
+  results: [UndefinedReference] @deprecated(reason: "Use items instead")
+  items: [UndefinedReference]
+  total: Int
+}
+
+"""update ArticleCategory input"""
+input UpdateArticleCategoryInput {
+  includeInNavigationMenu: Boolean
+  caegoryDescription: JSON
+  categoryImage: TSRelationshipInput
+  categoryTitle: String
+  icon: TSRelationshipInput
+  includeInMasterCategory: Boolean
+  definition: String
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateArticleCategoryResult {
+  clientMutationId: String
+  result: ArticleCategory
+}
+
+"""update Article input"""
+input UpdateArticleInput {
+  articleImage: TSRelationshipInput
+  articleLength: Int
+  audioLink: TSRelationshipInput
+  publishDate: String
+  articleContent: String
+  videoLink: String
+  title: String
+  category: TSRelationshipInput
+  excerpt: String
+  glossaryTerm: [TSRelationshipInput]
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateArticleResult {
+  clientMutationId: String
+  result: Article
+}
+
+"""update Asset input"""
+input UpdateAssetInput {
+  sourceUrl: String
+  path: String
+  filename: String
+  description: String
+  caption: JSON
+  uploadStatus: String
+  mimeType: String
+  title: String
+  credit: JSON
+  s3Key: String
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateAssetResult {
+  clientMutationId: String
+  result: Asset
+}
+
+"""update Brand input"""
+input UpdateBrandInput {
+  brandName: String
+  brandRank: Int
+  brandRankChange: Int
+  brandImage: TSRelationshipInput
+  brandKeywords: String
+  brandAveragePrice: Int
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateBrandResult {
+  clientMutationId: String
+  result: Brand
+}
+
+"""update GlossaryPage input"""
+input UpdateGlossaryPageInput {
+  relationship: [TSRelationshipInput]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateGlossaryPageResult {
+  clientMutationId: String
+  result: GlossaryPage
+}
+
+"""update GlossaryTerm input"""
+input UpdateGlossaryTermInput {
+  termTitle: String
+  termDefinition: String
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateGlossaryTermResult {
+  clientMutationId: String
+  result: GlossaryTerm
+}
+
+"""update HomePage input"""
+input UpdateHomePageInput {
+  bannerButtonContent: String
+  bannerHeading: String
+  bannerFeaturedImage: TSRelationshipInput
+  bannerButtonText: String
+  introQuote: String
+  bannerDescription: String
+  repeater: [HomePageRepeaterInput]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateHomePageResult {
+  clientMutationId: String
+  result: HomePage
+}
+
+"""update RankingPage input"""
+input UpdateRankingPageInput {
+  promoBanner: TSRelationshipInput
+  repeater: [RankingPageRepeaterInput]
+  _id: ID
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateRankingPageResult {
+  clientMutationId: String
+  result: RankingPage
+}
+
+"""update TsStaticSite input"""
+input UpdateTsStaticSiteInput {
+  title: String
+  baseUrl: String
+  provider: String
+  idKey: String
+  secretKey: String
+  destination: String
+  privateAcl: Boolean
+  environmentVariables: [TsStaticSiteEnvironmentVariablesInput]
+  triggers: [TsStaticSiteTriggersInput]
+  _id: ID!
+  _version: Int
+  _contentTypeId: String
+  _createdAt: String
+  _createdBy: String
+  _updatedAt: String
+  _updatedBy: String
+  _schemaVersion: Float
+  _enabled: Boolean
+  _enabledAt: String
+  clientMutationId: String
+}
+
+type UpdateTsStaticSiteResult {
+  clientMutationId: String
+  result: TsStaticSite
+}
+
+"""A project file stored on s3"""
+type Upload {
+  uploadUrl: ID
+  asset: Asset
+}
+
+"""This query allow you to pass context to your queries"""
+type WithContext {
+  search(
+    terms: String
+    contentTypeNames: [String]
+    contentTypeIds: [String]
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TSSearchResults
+  taxonomySuggest(
+    terms: String
+    contentTypeNames: [String]
+    contentTypeIds: [String]
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TSSuggestionPaginatedList
+
+  """List Versions for a piece of content"""
+  getContentVersion(id: ID!, version: Int!, locale: String, enableLocaleFallback: Boolean = true): TSVersionResponse
+
+  """List Versions for a piece of content"""
+  getContentVersionList(id: ID!, from: Int, size: Int): TSVersionsPaginatedList
+
+  """Returns a list asset in natural order."""
+  getAssetList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): AssetPaginatedList
+
+  """Get a asset by ID"""
+  getAsset(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Asset
+
+  """Search the asset index by keyword"""
+  searchAssetIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): AssetSearchResults
+
+  """Returns a list tsStaticSite in natural order."""
+  getTsStaticSiteList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TsStaticSitePaginatedList
+
+  """Get a tsStaticSite by ID"""
+  getTsStaticSite(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): TsStaticSite
+
+  """Search the tsStaticSite index by keyword"""
+  searchTsStaticSiteIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): TsStaticSiteSearchResults
+
+  """Get the homePage"""
+  homePage(locale: String, enableLocaleFallback: Boolean = true): HomePage @deprecated(reason: "Use getHomePage instead")
+
+  """Get the homePage"""
+  getHomePage(locale: String, enableLocaleFallback: Boolean = true): HomePage
+
+  """Returns a list articleCategory in natural order."""
+  getArticleCategoryList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleCategoryPaginatedList
+
+  """Get a articleCategory by ID"""
+  getArticleCategory(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): ArticleCategory
+
+  """Search the articleCategory index by keyword"""
+  searchArticleCategoryIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleCategorySearchResults
+
+  """Returns a list glossaryTerm in natural order."""
+  getGlossaryTermList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): GlossaryTermPaginatedList
+
+  """Get a glossaryTerm by ID"""
+  getGlossaryTerm(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): GlossaryTerm
+
+  """Search the glossaryTerm index by keyword"""
+  searchGlossaryTermIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): GlossaryTermSearchResults
+
+  """Returns a list brand in natural order."""
+  getBrandList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): BrandPaginatedList
+
+  """Get a brand by ID"""
+  getBrand(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Brand
+
+  """Search the brand index by keyword"""
+  searchBrandIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): BrandSearchResults
+
+  """Get the rankingPage"""
+  rankingPage(locale: String, enableLocaleFallback: Boolean = true): RankingPage @deprecated(reason: "Use getRankingPage instead")
+
+  """Get the rankingPage"""
+  getRankingPage(locale: String, enableLocaleFallback: Boolean = true): RankingPage
+
+  """Returns a list article in natural order."""
+  getArticleList(
+    locale: String
+    enableLocaleFallback: Boolean = true
+
+    """Filter out content that is not enabled. Defaults to true."""
+    onlyEnabled: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticlePaginatedList
+
+  """Get a article by ID"""
+  getArticle(_id: ID!, locale: String, enableLocaleFallback: Boolean = true): Article
+
+  """Search the article index by keyword"""
+  searchArticleIndex(
+    locale: String
+    enableLocaleFallback: Boolean = true
+    terms: String
+
+    """The offset from the first result you want to fetch."""
+    from: Int
+
+    """The maximum number of items to return."""
+    size: Int
+
+    """An elasticsearch style filter. Overrides onlyEnabled."""
+    filter: JSON
+
+    """An list of fields to sort by."""
+    sort: [TSSearchSort]
+  ): ArticleSearchResults
+
+  """Get the glossaryPage"""
+  glossaryPage(locale: String, enableLocaleFallback: Boolean = true): GlossaryPage @deprecated(reason: "Use getGlossaryPage instead")
+
+  """Get the glossaryPage"""
+  getGlossaryPage(locale: String, enableLocaleFallback: Boolean = true): GlossaryPage
+}

@@ -1,0 +1,133 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+
+<div class="category-page">
+
+	<div class="container-fluid category-wrap">
+		<div class="row row-15">
+			<!-- Category Header HTML Starts Here  -->
+			<div class="col-12">
+				<div class="category-head">
+					<div class="icon-head">
+
+						<div class="content-area">
+							<h2>Explore</h2>
+							<h5>ALL CATEGORIES</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row row-15">
+			<!-- Category Header HTML Ends Here -->
+			{% for category in home.page.repeater[0].categories %}
+			{% if category.includeInMasterCategory %}
+			<!-- Cateogory Post HTML Starts Here -->
+			<div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12 paginated-category-item" style="display: none">
+				<div class="post-wrap">
+					<a href="{{ category | route('categories')}}" class="post-link">
+						<div class="image-wrap background-image" style="background-image: url({{ category.categoryImage.path | image }});">
+							<!-- <img src="{{ article.articleImage.path | image }}" style="width: 300px; height: 170px"> -->
+						</div>
+						<div class="content-area">
+							<h3>{{ category.categoryTitle | safe}}</h3>
+							<p>{{ category.definition | safe}}</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+
+		</div>
+
+		<ul class="rankingPaginations">
+		</ul>
+
+		<script type="text/javascript">
+			var totalItems = $('.paginated-category-item').length;
+			var itemsPerPage = 10;
+			var totalPages = Math.ceil(totalItems / itemsPerPage);
+			if (totalPages <= 0)
+				totalPages = 1;
+
+			var parameters = window.location.search;
+			if (parameters == "")
+			{
+				window.location = '?page=1';
+			}
+
+			var page = 1;
+
+			parameters = parameters.slice(1, parameters.lenght);
+			parameters = parameters.split('&');
+			$.each(parameters, function(index, value) {
+				var para =  value.split('=');
+				if (para[0] == 'page' && para[1] != '')
+				{
+					if (!isNaN(parseInt(para[1])))
+					{
+						page = parseInt(para[1]);
+					}
+				}
+			});           
+
+			if (page <= 0)
+				page = 1;
+
+			if (page > totalPages)
+			{
+				window.location = '?page='+totalPages;
+			}
+
+			var start = (page-1)*itemsPerPage;
+			var end = itemsPerPage;
+			var items = $('.paginated-category-item').slice(start, start+end);
+
+			items.show();
+
+			var route = document.location.protocol+"//"+document.location.hostname+(window.document.location.port?':'+window.document.location.port+'':'')+document.location.pathname;
+			console.log(route);
+
+			$('.rankingPaginations').append(` <li class="viewAll">
+				<a href="`+(page == 1 ? '#' : route+'?page='+(1))+`" `+(page == 1 ? 'style="pointer-events: none" class="page-diabled"' : '')+`">
+				First
+				</a>
+				</li>`);
+
+			$('.rankingPaginations').append(`<li class="prev">
+				<a href="`+(page == 1 ? '#' : route+'?page='+(page-1))+`" `+(page == 1 ? 'style="pointer-events: none" class="page-diabled"' : '')+`">
+				<svg width="6" height="9" viewBox="0 0 6 9">
+				<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M5.5 9L1 4.5 5.5 0"></path>
+				</svg>
+				</a>
+				</li>`);
+
+			for(var p=1; p<=totalPages; p++)
+			{
+				console.log(p);
+				$('.rankingPaginations').append(`<li><a class="`+(page == p ? 'active' : '')+`" href="`+(route+'?page='+p)+`">`+p+`</a></li>`);
+			}
+
+			$('.rankingPaginations').append(`<li class="next">
+				<a href="`+(page == totalPages ? '#' : route+'?page='+(page+1))+`" `+(page == totalPages ? 'style="pointer-events: none" class="page-diabled"' : '')+`">
+				<svg width="6" height="9" viewBox="0 0 6 9">
+				<path fill="none" fill-rule="evenodd" stroke="#9798A7" stroke-linecap="round" stroke-linejoin="round" d="M.5 9L5 4.5.5 0"></path>
+				</svg>
+				</a>
+				</li>`);
+
+			$('.rankingPaginations').append(` <li class="viewAll">
+				<a href="`+(page == totalPages ? '#' : route+'?page='+(totalPages))+`" `+(page == totalPages ? 'style="pointer-events: none" class="page-diabled"' : '')+`">
+				Last
+				</a>
+				</li>`);
+			</script>
+		</div>
+
+	</div>
+
+	{% endblock %}
